@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>BPH</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+	.container{
+		width: 300px;
+		margin:0px;
+		padding: 0px;
+	}
+	.container p {
+		margin: 0px;
+		font-weight: bold;
+	}
+	.header{
+		background-color: #3366cc;
+		padding: 10px;
+	}
+	.header p {
+		color: white;
+	}
+	.record_line{
+		width: 300px;
+		background-color: #99ccff;
+		display: table;
+	}
+	.record_line p{
+		color: green;
+	}
+	.record {
+		padding: 10px;
+		width:46%;
+		float: left;
+		display: table-cell;
+
+	}
+	.record_number{
+		padding: 10px;
+		width: 40%;
+		float: left;
+		display: table-cell;
+	}
+	.now_line{
+		width: 300px;
+		background-color: white;
+		display: table;
+	}
+	.now_line p{
+		color: red;
+	}
+	.now {
+		padding: 10px;
+		width:46%;
+		float: left;
+		display: table-cell;
+	}
+	.now_number{
+		padding: 10px;
+		width: 40%;
+		float: left;
+		display: table-cell;
+	}
+	.last_line{
+		width: 300px;
+		background-color: #99ccff;
+		display: table;
+	}
+	.last_line p{
+		color: red;
+	}
+	.last {
+		padding: 10px;
+		width:46%;
+		float: left;
+		display: table-cell;
+	}
+	.last_data{
+		padding: 10px;
+		width: 40%;
+		float: left;
+		display: table-cell;
+	}
+	</style>
+  </head>
+  <body>
+    <div class="container">
+		<div class="header">
+			<p> DNI BEZ WYPADKU </p>
+		</div>
+		<div class="record_line">
+			<div class="record">
+				<p> REKORD </p>
+			</div>
+			<div class="record_number">
+				<p> 405 dni </p>
+			</div>
+		</div>
+		<div class="now_line">
+			<div class="now">
+				<p style="color:#909090"> AKTUALNIE </p>
+			</div>
+			<div class="now_number">
+				<p id="time"> </p>
+			</div>
+		</div>
+		<div class="last_line">
+			<div class="last">
+				<p style="color:#909090"> OSTATNI </p>
+			</div>
+			<div class="last_data">
+				<p id="data">  </p>
+			</div>
+		</div>
+	</div>
+  </body>
+</html>
+<script>
+	$(document).ready(function() {
+		var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+		var firstDate = new Date(2016,09,25); // To jest data ostatniego wypadku, jedyne miejsce w kodzie, które należy uaktualnić. Należy Pamiętać, że miesiące liczą się od 0: styczeń - 00, luty - 01, marzec - 02, itp.
+		var Today = new Date();
+		var Month = Today.getMonth();
+		var Day = Today.getDate();
+		var Year = Today.getFullYear();
+		var secondDate = new Date(Year, Month, Day);
+		var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
+		document.getElementById('data').innerHTML += firstDate.getDate() +'.'+ (firstDate.getMonth()+1) +'.'+ firstDate.getFullYear();
+		document.getElementById('time').innerHTML += diffDays;
+});
+ </script>
