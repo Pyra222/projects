@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ATA</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: Calibri;
+            cursor: default;
+        }
+        #container{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url("gfx/wildtextures-old-paper-texture.jpg"), black;
+        }
+        #inputBox{
+            font-size: 20px;
+            display: block;
+            width: calc(100% - 20px);
+            position: absolute;
+            outline: none;
+            bottom: 0px;
+            box-sizing: border-box;
+            height: 50px;
+            margin: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            border-radius: 10px;
+            padding-top: 10px;
+            box-shadow: inset 0px 0px 5px white,
+                              0px 0px 5px black;
+        }
+        #input{
+            box-sizing: border-box;
+            position: absolute;
+            font-size: 20px;
+            width: 95%;
+            outline: none;
+            background: none;
+            border: none;
+            color: white;
+            cursor: text;
+        }
+        .output{
+            position: relative;
+            bottom: 0px;
+        }
+        .user{
+            color: yellow !important;
+            text-shadow: 0px 0px 2px orange !important;
+        }
+        #outputBox{
+            position: relative;
+            font-size: 20px;
+            font-weight: 800;
+            width: calc(100% - 20px);
+            height: calc(100% - 120px);
+            overflow: auto;
+            box-sizing: border-box;
+            color: white;
+            text-shadow: 0px 0px 2px black;
+            margin: 10px;
+            padding: 10px;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid black;
+            border-radius: 10px;
+            box-shadow: inset 0px 0px 5px white,
+                              0px 0px 5px black;
+        }
+        #menu{
+            box-sizing: border-box;
+            width: calc(100% - 20px);
+            height: 30px;
+            margin: 10px;
+        }
+        span{
+            margin: 0px;
+            padding: 0px;
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+        span.item{
+            color: blue;
+        }
+        span.danger{
+            color: red;
+        }
+        span.option{
+            color: green;
+        }
+        span.command{
+            color: yellow;
+            text-shadow: 0px 0px 5px orange;
+        }
+        .interactive:hover{
+            background: rgba(0,0,0,0.2);
+            cursor: pointer;
+            box-shadow: inset 0px 0px 3px white,
+                              0px 0px 3px black;
+            border-radius: 3px;
+        }
+        .menuOption{
+            display: inline-block;
+            text-align: center;
+            box-sizing: border-box;
+            position: relative;
+            width: 80px;
+            height: 30px;
+            padding: 2px;
+            line-height: 25px;
+            font-size: 20px;
+            color: white;
+            text-shadow: 0px 0px 2px black;
+            user-select: none;
+        }
+        #new{
+            
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: white;
+            border: 1px solid gray;
+            box-sizing: border-box;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="outputBox">
+            <div class="output"> • Well, looks like you are trapped.<br> You may want to <span class="command interactive">LOOK</span>
+                around first.<br> Or you can cry for <span class="command interactive">HELP</span>.<br> Whatever...<br> See where the hell are you.</div>
+        </div>
+        <div id="menu">
+            <div id="new" class="menuOption interactive">NEW</div>
+            <div id="save" class="menuOption interactive">SAVE</div>
+            <div id="load" class="menuOption interactive">LOAD</div>
+            <div id="map" class="menuOption interactive">MAP</div>
+        </div>
+        <div id="inputBox">
+            &nbsp&gt&nbsp<input type="text" id="input" autofocus/>
+        </div>
+    </div>
+    <audio id="keyNoise" src="sound\keyNoise.wav"></audio>
+</body>
+<script>
+    var simpleCommands = {
+        go:         [{command: "go",         description: "go to another adjecent location"}],
+        help:       [{command: "help",       description: "show this list"}],
+        look:       [{command: "look",       description: "list all objects in the room"}],
+        item:       [{command: "item",       description: "test message"}],
+        danger:     [{command: "danger",     description: "list all dangers in current room"}],
+        option:     [{command: "option",     description: "show available actions"}],
+        inventory:  [{command: "inventory",  description: "show items in your posession"}]
+    };
+    
+    var player = {
+        position: 0,
+        status: ["OK"],
+        items: ["rope", "potion"],
+        //items: [rope, potion],
+        hp: 100,
+        mp: 10
+    };
+    
+    var rooms = [
+        {
+            index: 0,
+            name: "start room",
+            //items: [box, window, woodenDoor, floor, ceiling, walls, torch],
+            items: ["box", "window", "wooden Door", "floor", "ceiling", "walls", "torch"],
+            description: "Room is poorly lit by one bare lightbulb hanging from the ceiling. It flickers ocasionally."+
+                         "It's cold and humid. You can hear water dripping in the distance.<br>",
+            short_description: "Room.",
+            ways: ["S1"],
+        },{
+            index: 1,
+            ways: ["N0","S5","W2","E4"],
+            name: "crossroads",
+            description: "Lights are better here, no flickering at least. Murky walls are spotted with mold. You can see unidentified fluid dripping from the ceiling. Dark, reddish fluid forming a puddle on the floor.",
+            short_description: "A room with the dripping ceiling",
+            items: ["nothing"],
+        },{
+            index: 2,
+            ways: ["E1","S3"],
+            name: "a room",
+            description: "a room",
+            short_description: "a room",
+            items: ["nothing"],
+        },{
+            index: 3,
+            ways: ["N2"],
+            name: "a room",
+            description: "a room",
+            short_description: "a room",
+            items: ["nothing"],
+        },{
+            index: 4,
+            ways: ["W1"],
+            name: "a room",
+            description: "a room",
+            short_description: "a room",
+            items: ["nothing"],
+        },{
+            index: 5,
+            ways: ["N1"],
+            name: "a room",
+            description: "a room",
+            short_description: "a room",
+            items: ["nothing"],
+        },
+    ];
+    
+    $("#input").on("keypress", function(e){
+        if(e.keyCode == 13){
+            var box = document.getElementById("outputBox");
+            box.innerHTML += '<br><div class="output user"> > '+this.value+'</div>';
+            var response = parseInput(this.value);
+            box.innerHTML += '<div class="output"> • '+response+'</div>';
+            this.value = "";
+            box.scrollTop = box.scrollHeight;
+        }
+        var keyNoise = document.getElementById("keyNoise");
+        keyNoise.currentTime = 0.0;
+        keyNoise.play();
+    });
+    
+    function item(input){
+        return '<span class="item interactive">'+input.toUpperCase()+'</span>';
+    }
+    
+    function danger(input){
+        return '<span class="danger interactive">'+input.toUpperCase()+'</span>';
+    }
+    
+    function option(input){
+        return '<span class="option interactive">'+input.toUpperCase()+'</span>';
+    }
+    
+    function command(input){
+        return '<span class="command interactive">'+input.toUpperCase()+'</span>';
+    }
+    
+    function parseInput(input){
+        var response;
+        response = testResponse(input);
+        return response;
+    }
+    
+    function testResponse(rawInput){
+        var input = rawInput.trim().toLowerCase();
+        if(input.indexOf(" ") > -1){input = input.substring(0,input.indexOf(" "));}
+        console.log(input);
+        switch(input){
+            case "":
+                return "Silent treatment, huh? You'll achieve nothing this way.";
+            case simpleCommands.go[0].command:
+                return processMovement(rawInput);
+            case simpleCommands.help[0].command:
+                var helpText = "Available commands are:<br><table>";
+                for(var comm in simpleCommands){
+                    helpText += "<tr><td>"+command(simpleCommands[comm][0].command) + "</td><td> "+simpleCommands[comm][0].description+"</td></tr>";
+                }
+                helpText += "</table><br>";
+                return helpText;
+            case simpleCommands.item[0].command:
+                return "You have found " + item("AN ITEM") + ". Good for you.";
+            case simpleCommands.danger[0].command:
+                return "You have stepped into some "+ danger("deep shit") + ". Fuck everything and run.";
+            case simpleCommands.option[0].command:
+                return "You can go "+option("NORTH")+" or "+option("SOUTH")+". Doesn't matter. You'll die anyway...";
+            case simpleCommands.inventory[0].command:
+                var items = "";
+                for(var i=0;i<player.items.length-1;i++){
+                    items += item(player.items[i])+", ";
+                }
+                if(player.items.length > 1){
+                    items = items.substring(0,items.length-2);
+                    items += " and "+item(player.items[player.items.length-1]);
+                }
+                return "You have in your posession: "+items+".";
+            case simpleCommands.look[0].command:
+                var room = rooms.filter(function(element){
+                    return element.index == player.position; 
+                });
+                var roomItems = "";
+                for(var i=0;i<room[0].items.length-1;i++){
+                    roomItems += item(room[0].items[i])+", ";
+                }
+                if(room[0].items.length > 1){
+                    roomItems = roomItems.substring(0,roomItems.length-2);
+                    roomItems += " and "+item(room[0].items[room[0].items.length-1]);
+                }
+                return room[0].description + " " + "You are "+player.status+". You can see "+roomItems+" here.";
+            default:
+                return "I don't know what you want.";
+        }
+    }
+
+    $(document).on("click", ".interactive",function(event){
+        event.preventDefault();
+        var command = event.target.innerHTML;
+        document.getElementById("input").value += " "+command.toLowerCase();
+        document.getElementById("input").focus();
+        console.log(command);
+    });
+    
+    function processMovement(rawInput){
+        var input = rawInput.trim().split(" ");
+        if(input.length > 1){
+            console.log(input);
+        }
+        else{
+            return "Go where?"
+        }
+    }
+    
+</script>
+</html>

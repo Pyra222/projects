@@ -1,0 +1,25 @@
+nouns: {go, use, take, put, get, smell, touch, look, open, close, shut, eat, drink, throw, push, pull, move}
+directions: {N,S,E,W,NE,NW,SE,SW,north,south,east,west,south-east,south-west,north-east,north-west}
+sentences:
+    {noun} {verb}
+    {noun} {verb} on {verb}
+    {noun} {verb} from {verb}
+    {noun} at {verb}
+    {noun} {verb} at {verb}
+not importatnt: {the, a, an}
+
+interfaces:
+    usable,
+    takeable,
+    smellable,
+    touchable,
+    openable,
+    closeable,
+    eatable,
+    drinkable,
+    throwable,
+    pushable,
+    pullable,
+    movable
+
+adjective: {open, closed, hot, cold, humid, dry, rough, smooth, wet, small, big, static, dynamic}
