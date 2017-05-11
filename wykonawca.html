@@ -5,7 +5,13 @@
 		<title>Wykonawca</title>
 		<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<style>
+		<script src="docxtemplater-build-master/build/docxtemplater-latest.js"></script>
+        <script src="jszip-2.x/dist/jszip.js"></script>
+        <script src="jszip-2.x/vendor/FileSaver.js"></script> 
+        <script src="jszip-utils-master/dist/jszip-utils.js"></script>
+        <script src="printToDocx.js"></script>
+
+        <style>
 			*{
 				font-family: verdana;
 				margin:0px;
@@ -67,17 +73,11 @@
 			}
 			#previewButton{
 				float:left;
-				margin-left: 40px;
+				margin-left:190px;
 			}
 			#saveDraftButton{
-				float:left;
-				margin-left: 40px;
-
-			}
-			#pullDraftButton{
-				float: left;
-				margin-left: 40px;
-				
+				float:right;
+				margin-right:184px;
 			}
 			#addPersonButton{
 				width: 100px;
@@ -143,18 +143,12 @@
 				display:table;
 				width:1100px;
 			}
-			.splitBoxTwoPart{
+			.splitBox{
 				width:540px;/*546px;*/
 				float: left;
 				display: table-cell;
 				margin:0px;
-			}	
-			.splitBoxThreePart{
-				width:360px;/*546px;*/
-				float: left;
-				display: table-cell;
-				margin:0px;
-			}	
+			}		
 			.textField{					
 				background: white;
 				width: 400px;
@@ -348,10 +342,10 @@
 						<p style="font-size:10px;">Pomoc ▼</p>
 					</div>
 					<div id="contactBoxOnFormSite">
-						<div class="splitBoxTwoPart">
+						<div class="splitBox">
 							<p>Pytania o treść formularza proszę kierować do: </p><p><a href="mailto:andrzej.wrona@woodward.com"> Andrzej Wrona </a></p><p>lub</p><p><a href="mailto:anna.rajzer@woodward.com"> Anna Rajzer </a></p>
 						</div>
-						<div class="splitBoxTwoPart">
+						<div class="splitBox">
 							<p> Awarie formularza proszę kierować do:</p><p ><a href="mailto:aleksandra.mieszkowska@woodward.com"> Aleksandra Mieszkowska </a></p> <p style="text-align:center">lub</p><p><a href="mailto:dawid.skorewicz@woodward.com"> Dawid Skórewicz </a></p>
 						</div>
 					</div>
@@ -488,19 +482,14 @@
 				</div>
 				<div id="summaryBoxOnFormSite" >
 					<fieldset style="height:100%; background-color:#fee4b4;border-color:#b44545;">
-						<div class="splitBoxThreePart" style="padding-left: 10px;">
+						<div class="splitBox" style="padding-left: 10px;">
 						<div id="previewButton"  class="brightButton"  >
 									Podgląd dokumentu
 						</div>
 						</div>
-						<div class="splitBoxThreePart">
+						<div class="splitBox">
 						<div id="saveDraftButton" class="brightButton" >
 									Zapis wersji roboczej
-						</div>
-						</div>
-						<div class="splitBoxThreePart">
-						<div id="pullDraftButton" class="brightButton" >
-									Wczytanie wersji roboczej
 						</div>
 						</div>
 					</fieldset>
@@ -508,7 +497,6 @@
 			</form>
 		</div>
 		<div id="documentSite" class="hidden">
-			
 			<div id="firstSiteDocument" class="documentPart"> 
 				<div class="documentText" id="text">
 					<div id="footer">
