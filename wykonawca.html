@@ -73,12 +73,16 @@
 			}
 			#previewButton{
 				float:left;
-				margin-left:190px;
+				margin-left:40px;
 			}
 			#saveDraftButton{
-				float:right;
-				margin-right:184px;
+				float:left;
+				margin-left:40px;
 			}
+            #pullDraftButton{
+ 				float: left;
+ 				margin-left: 40px;				
+  			}
 			#addPersonButton{
 				width: 100px;
 				margin-top:0px;
@@ -143,12 +147,19 @@
 				display:table;
 				width:1100px;
 			}
-			.splitBox{
-				width:540px;/*546px;*/
-				float: left;
-				display: table-cell;
-				margin:0px;
-			}		
+			.splitBoxTwoPart{
+  				width:540px;/*546px;*/
+  				float: left;
+  				display: table-cell;
+  				margin:0px;
+ 			}		
+ 			
+ 			.splitBoxThreePart{
+ 				width:360px;/*546px;*/
+ 				float: left;
+ 				display: table-cell;
+ 				margin:0px;
+ 			}	
 			.textField{					
 				background: white;
 				width: 400px;
@@ -342,10 +353,10 @@
 						<p style="font-size:10px;">Pomoc ▼</p>
 					</div>
 					<div id="contactBoxOnFormSite">
-						<div class="splitBox">
+						<div class="splitBoxTwoPart">
 							<p>Pytania o treść formularza proszę kierować do: </p><p><a href="mailto:andrzej.wrona@woodward.com"> Andrzej Wrona </a></p><p>lub</p><p><a href="mailto:anna.rajzer@woodward.com"> Anna Rajzer </a></p>
 						</div>
-						<div class="splitBox">
+						<div class="splitBoxTwoPart">
 							<p> Awarie formularza proszę kierować do:</p><p ><a href="mailto:aleksandra.mieszkowska@woodward.com"> Aleksandra Mieszkowska </a></p> <p style="text-align:center">lub</p><p><a href="mailto:dawid.skorewicz@woodward.com"> Dawid Skórewicz </a></p>
 						</div>
 					</div>
@@ -482,16 +493,21 @@
 				</div>
 				<div id="summaryBoxOnFormSite" >
 					<fieldset style="height:100%; background-color:#fee4b4;border-color:#b44545;">
-						<div class="splitBox" style="padding-left: 10px;">
+						<div class="splitBoxThreePart" style="padding-left: 10px;">
 						<div id="previewButton"  class="brightButton"  >
 									Podgląd dokumentu
 						</div>
 						</div>
-						<div class="splitBox">
+						<div class="splitBoxThreePart">
 						<div id="saveDraftButton" class="brightButton" >
 									Zapis wersji roboczej
 						</div>
 						</div>
+                        <div class="splitBoxThreePart">
+ 						<div id="pullDraftButton" class="brightButton" >
+ 									Wczytanie wersji roboczej
+ 						</div>
+ 						</div>
 					</fieldset>
 				</div>
 			</form>
