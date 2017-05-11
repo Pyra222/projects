@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Osoby zewnętrzne</title>
+		<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<style>
+			*{
+				font-family: verdana;
+				margin:0px;
+				padding:0px;
+			}
+			* p{
+				font-size: 20px;
+				text-align:center;
+			}
+			* h1{
+				text-align: center;
+			}
+			* a{
+				text-decoration: none;
+				color: black;
+			}
+			* a:hover{
+				color: black;
+			}
+			* a:active{
+				color: black;
+			}
+			.container{
+				position: absolute;
+				width: 1020px;
+				height: 350px;
+				overflow: hidden;
+				margin: auto;
+				top: 0px; left: 0px; bottom: 0px; right: 0px;
+				background-color: pink;
+				background-color: #fee4b4;
+				padding:0px;
+				border-color:#b44545;
+				border-color                : rgba(0, 0, 0, 0.2);
+				border-style                : solid;
+				border-width                : 1px;
+			}
+			.title{
+				width:96%;
+				height:150px;
+				padding:20px;
+			}
+			.splitBox{
+				width:46%;
+				height:80px;
+				float: left;
+				display: table-cell;
+				margin:2%;
+				box-shadow: inset 0px 0px 5px white,
+								  0px 10px 10px rgba(0,0,0,0.7);
+			}
+			.splitBox:hover{
+				box-shadow: inset 0px 0px 5px white,
+								  0px 5px 5px rgba(0,0,0,0.7);
+			}
+			.splitBox:active{
+				box-shadow: inset 0px 0px 3px white,
+								  0px 2px 2px rgba(0,0,0,0.7);
+			}
+			.splitBox h1{
+				
+				padding-top: 20px;
+				padding-bottom:0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="title">
+				<h1> Goście i Podwykonawcy na terenie Woodward Poland Sp. z o.o.</h1><br/>
+				<p>Zapraszając osobę z poza firmy na teren zakładu konieczne jest zgłoszenie jej w poniższym systemie. Wybierz jedną z dwóch poniższych kategorii.</p>
+			</div>
+			<a class="visitor splitBox" href="gosc.html">
+				<h1> Gość </h1>
+			</a>
+			<a class="subcontractor splitBox" href="wykonawca.html">
+				<h1> Podwykonawca </h1>
+			</a>
+		</div>
+	</body>
+</html>
+<script>
+	$(document).ready(function() {
+	
+	});
+</script>
