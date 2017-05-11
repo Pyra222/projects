@@ -1,9 +1,109 @@
 /* global $, document */
 
-var valuesToSave = [];
+var valuesToSave = {};
 
+function get(id){
+    return document.getElementById(id);
+}
+function getDate(id){
+    return document.getElementById(id);
+}
+function download(filename, text) {
+    var pom = document.createElement('a');
+    pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    pom.setAttribute('download', filename);
+
+    if (document.createEvent) {
+        var event = document.createEvent('MouseEvents');
+        event.initEvent('click', true, true);
+        pom.dispatchEvent(event);
+    }
+    else {
+        pom.click();
+    }
+}
+
+function readSingleFile(evt) {
+    //Retrieve the first (and only!) File from the FileList object
+    var f = evt.target.files[0]; 
+    var contents;
+    if (f) {
+    var r = new FileReader();
+    r.onload = function(e) { 
+        contents = e.target.result;
+        console.log(contents);
+        var valuesToLoad = JSON.parse(contents);
+        console.log(valuesToLoad);
+        loadValues(valuesToLoad);
+    };
+    r.readAsText(f);
+    } else { 
+        alert("Failed to load file");
+    }
+}
+
+//pullDraftButton
 function getValuesToSave(){
-    valuesToSave.push();
+    
+    var people = document.getElementsByClassName("people");
+    valuesToSave.people = [];      
+    for(var person of people){
+        valuesToSave.people.push(person.value);
+    }
+    
+    valuesToSave.name =         get("name").value;
+    valuesToSave.coordinator =  get("coordinator").value;
+    valuesToSave.supervisor =   get("supervisor").value;
+    valuesToSave.phone =        get("phone").value;
+    valuesToSave.startTime =    getDate("startTime").value;
+    valuesToSave.endTime =      getDate("endTime").value;    
+    valuesToSave.area_1 =       get("area_1").checked;
+    valuesToSave.area_2 =       get("area_2").checked;
+    valuesToSave.area_3 =       get("area_3").checked;
+    valuesToSave.area_4 =       get("area_4").checked;
+    valuesToSave.area_5 =       get("area_5").checked;
+    valuesToSave.area_6 =       get("area_6").checked;
+    valuesToSave.area_7 =       get("area_7").checked;
+    valuesToSave.description =  get("description").value;
+    valuesToSave.question_1 =   get("question_1").checked;
+    valuesToSave.question_2 =   get("question_2").checked;
+    valuesToSave.question_3 =   get("question_3").checked;
+    valuesToSave.question_4 =   get("question_4").checked;
+    valuesToSave.question_5 =   get("question_5").checked;
+    valuesToSave.question_6 =   get("question_6").checked;
+    valuesToSave.question_7 =   get("question_7").checked;
+    valuesToSave.question_8 =   get("question_8").checked;
+    
+    console.log(valuesToSave);
+}
+
+function loadValues(valuesToLoad){
+    get("name").value           = valuesToLoad.name;
+    get("coordinator").value    = valuesToLoad.coordinator;
+    get("supervisor").value     = valuesToLoad.supervisor ;
+    get("phone").value          = valuesToLoad.phone    ;
+    getDate("startTime").value  = valuesToLoad.startTime;
+    getDate("endTime").value    = valuesToLoad.endTime  ;    
+    get("area_1").checked       = valuesToLoad.area_1   ;
+    get("area_2").checked       = valuesToLoad.area_2   ;
+    get("area_3").checked       = valuesToLoad.area_3   ;
+    get("area_4").checked       = valuesToLoad.area_4    ;
+    get("area_5").checked       = valuesToLoad.area_5    ;
+    get("area_6").checked       = valuesToLoad.area_6    ;
+    get("area_7").checked       = valuesToLoad.area_7    ;
+    get("description").value    = valuesToLoad.description;
+    get("question_1").checked   = valuesToLoad.question_1;
+    get("question_2").checked   = valuesToLoad.question_2;
+    get("question_3").checked   = valuesToLoad.question_3;
+    get("question_4").checked   = valuesToLoad.question_4;
+    get("question_5").checked   = valuesToLoad.question_5;
+    get("question_6").checked   = valuesToLoad.question_6;
+    get("question_7").checked   = valuesToLoad.question_7;
+    get("question_8").checked   = valuesToLoad.question_8;
+    
+    get("visitor_1").value      = valuesToLoad.people[0];
+    get("visitor_2").value      = valuesToLoad.people[1];
+    get("visitor_3").value      = valuesToLoad.people[2];
 }
 
 function printToDocx(){
@@ -193,8 +293,18 @@ if ($("#question_8").is(':checked')){
 }
 
 $().ready(function(){
+    document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
+
     $(document).on("click",'#printButton',function(){
         printToDocx();
+    });
+    $(document).on("click", "#saveDraftButton", function(){
+        getValuesToSave();
+        var out = JSON.stringify(valuesToSave);
+        download("output.json",out);
+    });
+    $(document).on("click", "#pullDraftButton", function(){
+        
     });
 });
 
