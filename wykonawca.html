@@ -14,43 +14,18 @@
 			* p{
 				font-size: 14px;
 			}
+            html, body{
+                height: 100%;
+            }
 			label{
 				font-size: 14px;
 			}
-			#tu {
-				background-color: yellow;
-			}
-			#dodaj_podwykonawce{
-				background: white;
-				width: 100px;
-				height: 30px;
-				border-radius: 15px;
-				border: 1px solid rgba(0,0,0,0.7);
-				box-shadow: inset 0px 0px 10px rgba(0,0,0,0.7);
-				line-height: 30px;
-				text-align: center;
-				user-select: none;
-				cursor: pointer;
-			}
-			#dodaj_podwykonawce:hover{
-				background: rgb(255, 247, 221);
-			}
-			#dodaj_podwykonawce:active{
-				background: rgb(255, 234, 165);
-			}
-			#podglad:hover{
-				background: rgb(255, 247, 221);
-			}
-			#podglad:active{
-				background: rgb(255, 234, 165);
-			}
-			#robocze:hover{
-				background: rgb(255, 247, 221);
-			}
-			#robocze:active{
-				background: rgb(255, 234, 165);
-			}
-			#podglad{
+
+
+/* BUTTONS */
+			
+			
+			.brightButton{
 				background: white;
 				width: 250px;
 				height: 30px;
@@ -61,62 +36,114 @@
 				text-align: center;
 				user-select: none;
 				cursor: pointer;
-				float:left;
 				margin-top:13px;
-				margin-left:190px;
 			}
-			#robocze{
-				background: white;
-				width: 250px;
+			.brightButton:hover{
+				background: rgb(255, 247, 221);
+			}
+			.brightButton:active{
+				background: rgb(255, 234, 165);
+			}
+			.redButton{
+				width: 300px;
 				height: 30px;
-				border-radius: 15px;
-				border: 1px solid rgba(0,0,0,0.7);
-				box-shadow: inset 0px 0px 10px rgba(0,0,0,0.7);
-				line-height: 30px;
-				text-align: center;
-				user-select: none;
-				cursor: pointer;
-				float:right;
-				margin-top:13px;
-				margin-right:190px;
-			}
-			#kontakt_guzik{
-				width: 80px;
-				height: 20px;
 				border-radius: 15px;
 				border: 1px solid rgba(255,255,255,0.7);
 				box-shadow: inset 0px 0px 10px rgba(255,255,255,0.7);
-				line-height: 22px;
+				line-height: 30px;
 				text-align: center;
 				user-select: none;
 				cursor: pointer;
-				position:absolute;
-				right: 10px;
-				bottom:10px;
+				margin: 0 auto;
+				margin-top: 30px;
+				float:left;
+				margin-left: 30px;
 			}
-			#kontakt_guzik:hover{
+			.redButton:hover{
 				background: rgb(242, 123, 123);
 			}
-			#kontakt_guzik:active{
+			.redButton:active{
 				background: rgb(242, 96, 96);
 			}
-			#kontakt{
+			#previewButton{
+				float:left;
+				margin-left:190px;
+			}
+			#saveDraftButton{
+				float:right;
+				margin-right:184px;
+			}
+			#addPersonButton{
+				width: 100px;
+				margin-top:0px;
+				font-size:12px;
+			}
+			#helpButtonOnFormSite{
+				width: 80px;
+				height: 20px;
+				line-height: 22px;
+				margin:0px;
+				right: 10px;
+				bottom:10px;
+				position:absolute;
+			}
+			
+			
+/*STRUCTURE*/
+			
+/*form site*/
+			
+			#formSite{
+				width: 1100px;
+				margin: 3px;
+			}
+			#infoPartOnFormSite{
+				width: 1080px;
+				padding:10px;
+				position:relative;
+				overflow:hidden;
+				height:150px;
+				transition: height 0.5s;
+				background-color:#b44545;
+			}
+			#infoPartOnFormSite p{
+				text-align:center;
+				color: white;
+			}
+			#infoPartOnFormSite a{
+				text-align:center;
+				color: white;
+			}
+			#infoPartOnFormSite h1{
+				text-align:center;
+				color: white;
+			}
+			#formParts{
+				width:1100px;
+                display: flex;
+			}
+			.formPart{
+                box-sizing: border-box;
+				width:50%;
+				margin:0px;
+				padding:10px;
+			}
+			#summaryBoxOnFormSite{
+				width:1100px;
+				height:60px;
+				margin: 0 auto;
+			}
+			#contactBoxOnFormSite{    
 				display:table;
 				width:1100px;
 			}
-			#pytania{
-				width:546px;
+			.splitBox{
+				width:540px;/*546px;*/
 				float: left;
 				display: table-cell;
 				margin:0px;
-			}
-			#awarie{
-				width:546px;
-				float: left;
-				display: table-cell;
-				margin:0px;
-			}
-			.pole_tekstowe{
+			}		
+			.textField{					
 				background: white;
 				width: 400px;
 				height: 30px;
@@ -130,60 +157,126 @@
 				cursor: pointer;
 				outline:none;
 			}
-			input[type="checkbox"]{
-				margin:10px;
+			
+/*document site*/
+			
+			#documentSite{
+				background-color:#fee4b4;
+				height:30.7cm;
+				width: 1170px;
+				transition: height 0.01s;
 			}
-			.opis{
-				text-align:left;
+			.documentPart{
+				width: 21cm;
+				height:29.7cm;
+				margin:3 px;
+				border-style: solid;
+				display:table-cell;
+				float:left;
+				padding:0px;
+				background-color:white;
 			}
-			#Formularz{
-				width: 1100px;
-				margin: 3px;
+			#firstSiteDocument{
+				
 			}
-			#Info{
-				width: 1080px;
-				padding:10px;
+			#secondSiteDocument{
+				
+			}
+			#firstSiteDocument p{
+				font-size: 14px;
+			}
+			#secondSiteDocument p{
+				font-size: 14px;
+			}
+			#infoPartOnDocumentSite{
+				width: 350px;
+				height:100px;
+				display:table-cell;
+				margin:0px;
+				padding-top:0px;
+			}			
+			.documentText{
+				width: 16cm;
+				position: absolute;
+				max-height:24.7cm;
+				margin-top: 2.5cm;
+				margin-left:2.5cm;
+				padding:0px;
+			}
+			#footer{
+				margin-top:6px;
+				float: left;
+				display:table;
+				width: 150px;
+			}
+			#date{
+				width:100%;
+			}
+			#supportBox{
+				background-color: #fee4b4;
+				width: 90%;
+				min-height: 20px;
+				padding: 5%;
+			}
+			#summaryBoxOnDocumentSite{
+				background-color:#b44545;
+				width: 100%;
+				height: 220px;
+			}
+			#summaryBoxOnDocumentSite p{
+				text-align:center;
+				color: white;
+				font-size:16px;
+			}
+			#contactBoxOnDocumentSite{
+				background-color:#b44545;
+				
+				width: 100%;
+				height: 96px;
+				padding-top: 10px;
 				position:relative;
 				overflow:hidden;
-				height:150px;
+				transition: height 1s;
+			}
+			#contactBoxOnDocumentSite p{
+				text-align:center;
+				color: white;
+				font-size:16px;
+			}
+			#contactBoxOnDocumentSite a{
+				text-align:center;
+				color: white;
+			}
+			#unwrappedContactBoxOnDocumentSite{
+				padding:5%;
+			}
+			
+						
+/*FUNCTIONALITIES*/
+
+
+			.hidden{
+				display:none !important;
+			}
+			.unwrappedMedium{
+				height: 230px !important;
 				transition: height 0.5s;
-				background-color:#b44545;
 			}
-			#Info p{
-				text-align:center;
-				color: white;
+			.unwrappedBig{
+				height: 350px !important;
+				transition: height 1s;
 			}
-			#Info a{
-				text-align:center;
-				color: white;
+			.unwrappedSmall{
+				height: 60cm !important;
+				transition: height 0.01s;
 			}
-			#Info h1{
-				text-align:center;
-				color: white;
-			}
-            html, body{
-                height: 100%;
-            }
-			#Form{
-				width:1100px;
-                display: flex;
-			}
-			#Podwykonawca{
-                box-sizing: border-box;
-				width:50%;
-				margin:0px;
-				padding:10px;
-			}
-			#Praca{
-                box-sizing: border-box;
-				width:50%;
-				margin:0px;
-				padding:10px;
-			}
-			#podsumowanie{
-				width:1100px;
-				height:60px;
-				margin: 0 auto;
+			
+			
+/*OTHER*/
+			
+			
+			input[type="checkbox"]{
+				margin:10px;
 			}
 			.ui-autocomplete {
 				position                    : absolute;
@@ -227,830 +320,604 @@
 			.ui-helper-hidden-accessible{ 
 				display:none; 
 			}
-			#but_1{
-				width:546px;
-				float: left;
-				display: table-cell;
-				margin:0px;
-			}
-			#but_2{
-				width:546px;
-				float: left;
-				display: table-cell;
-				margin:0px;
-			}
-			#container_1{
-				background-color:#fee4b4;
-				height:30.7cm;
-				width: 1170px;
-				transition: height 0.01s;
-			}
-			#container_2{
-				width: 21cm;
-				height:29.7cm;
-				margin:3 px;
-				border-style: solid;
-				display:table-cell;
-				float:left;
-				padding:0px;
-				background-color:white;
-			}
-			#container_2 p{
-				font-size: 14px;
-			}
-			#container_3{
-				width: 21cm;
-				height:29.7cm;
-				margin:3 px;
-				border-style: solid;
-				display:table-cell;
-				float:left;
-				padding:0px;
-				background-color:white;
-			}
-			#container_3 p{
-				font-size: 14px;
-			}
-			#kolumna{
-				width: 350px;
-				height:100px;
-				display:table-cell;
-				margin:0px;
-				padding-top:0px;
-			}			
-			.tresc{
-				width: 16cm;
-				max-height:24.7cm;
-				margin-top: 2.5cm;
-				margin-left:2.5cm;
-				padding:0px;
-			}
-			.stopka_gora{
-				display:table;
-				width: 100%;
-			}
-			.stopka_gora_1{
-				width:51%;
-				float: left;
-				display: table-cell;
-				margin-top:6px;
-			}
-			.stopka_gora_2{
-				width:46%;
-				float: right;
-				display: table-cell;
-				margin-top:-3px;
-				margin-right: -55px;
-			}
-			.rozwiniete{
-				height: 230px !important;
-				transition: height 0.5s;
-			}
-			.schowaj{
-				display:none !important;
-			}
-			#data{
-				width:100%;
-			}
-			#komunikaty{
-				background-color: #fee4b4;
-				width: 90%;
-				min-height: 20px;
-				padding: 5%;
-			}
-			#podsumowanie2{
-				background-color:#b44545;
-				width: 100%;
-				height: 220px;
-			}
-			#podsumowanie2 p{
-				text-align:center;
-				color: white;
-				font-size:16px;
-			}
-			#pomoc{
-				background-color:#b44545;
-				
-				width: 100%;
-				height: 96px;
-				padding-top: 10px;
-				position:relative;
-				overflow:hidden;
-				transition: height 1s;
-			}
-			#pomoc p{
-				text-align:center;
-				color: white;
-				font-size:16px;
-			}
-			#pomoc a{
-				text-align:center;
-				color: white;
-			}
-			#kontakt2{
-				padding:5%;
-			}
-			#powrot{
-				width: 300px;
-				height: 30px;
-				border-radius: 15px;
-				border: 1px solid rgba(255,255,255,0.7);
-				box-shadow: inset 0px 0px 10px rgba(255,255,255,0.7);
-				line-height: 30px;
-				text-align: center;
-				user-select: none;
-				cursor: pointer;
-				margin: 0 auto;
-				margin-top: 30px;
-				float:left;
-				margin-left: 30px;
-			}
-			#powrot:hover{
-				background: rgb(242, 123, 123);
-			}
-			#powrot:active{
-				background: rgb(242, 96, 96);
-			}
-			#drukuj{
-				width: 300px;
-				height: 30px;
-				border-radius: 15px;
-				border: 1px solid rgba(255,255,255,0.7);
-				box-shadow: inset 0px 0px 10px rgba(255,255,255,0.7);
-				line-height: 30px;
-				text-align: center;
-				user-select: none;
-				cursor: pointer;
-				margin: 0 auto;
-				margin-top: 30px;
-				float:left;
-				margin-left: 30px;
-			}
-			#drukuj:hover{
-				background: rgb(242, 123, 123);
-			}
-			#drukuj:active{
-				background: rgb(242, 96, 96);
-			}
-			#robocze2{
-				width: 300px;
-				height: 30px;
-				border-radius: 15px;
-				border: 1px solid rgba(255,255,255,0.7);
-				box-shadow: inset 0px 0px 10px rgba(255,255,255,0.7);
-				line-height: 30px;
-				text-align: center;
-				user-select: none;
-				cursor: pointer;
-				float:left;
-				margin-top:30px;
-				margin-left:30px;
-			}
-			#robocze2:hover{
-				background: rgb(242, 123, 123);
-			}
-			#robocze2:active{
-				background: rgb(242, 96, 96);
-			}
-			#kontakt_guzik2{
-				width: 300px;
-				height: 30px;
-				border-radius: 15px;
-				border: 1px solid rgba(255,255,255,0.7);
-				box-shadow: inset 0px 0px 10px rgba(255,255,255,0.7);
-				line-height: 30px;
-				text-align: center;
-				user-select: none;
-				cursor: pointer;
-				margin: 0 auto;
-				margin-top: 30px;
-				float:left;
-				margin-left: 30px;
-			}
-			#kontakt_guzik2:hover{
-				background: rgb(242, 123, 123);
-			}
-			#kontakt_guzik2:active{
-				background: rgb(242, 96, 96);
-			}
-			.rozwiniete2{
-				height: 350px !important;
-				transition: height 1s;
-			}
-			.rozwiniete3{
-				height: 60cm !important;
-				transition: height 0.01s;
-			}
 		</style>
 	</head>
 	<body>
-		<div id="container">
-			<div id="Formularz">
-				<form name="Formularz"> 
-					<div id="Info">
-						<h1 style="text-align:center;"> Formularz zgłaszania pracy Podwykonawców</h1>
-						<br/>
-						<p> Każdy pracownik zlecając pracę firmie podwykonawczej ma obowiązek wypełnić ten formularz. Po jego wypełnieniu i wygenerowaniu dokumentu musi go wydrukować, podpisać i złożyć w dyżórce ochrony. Wygenerowanie dokumentu skutkuje wysłaniem informacji do osób odpowiedzialnych za dane obszary firmy, w których będzie wykonywana praca.</p>
-						<br/>
-						<p style="font-weight:bold;"> Wszystkie pola są obowiązkowe.</p>
-						<br/>
-						<div id="kontakt_guzik">
-							<p style="font-size:10px;">Pomoc ▼</p>
+		<div id="formSite">
+			<form name="form"> 
+				<div id="infoPartOnFormSite">
+					<h1 style="text-align:center;"> Formularz zgłaszania pracy Podwykonawców</h1>
+					<br/>
+					<p> Każdy pracownik zlecając pracę firmie podwykonawczej ma obowiązek wypełnić ten formularz. Po jego wypełnieniu i wygenerowaniu dokumentu musi go wydrukować, podpisać i złożyć w dyżórce ochrony. Wygenerowanie dokumentu skutkuje wysłaniem informacji do osób odpowiedzialnych za dane obszary firmy, w których będzie wykonywana praca.</p>
+					<br/>
+					<p style="font-weight:bold;"> Wszystkie pola są obowiązkowe.</p>
+					<br/>
+					<div id="helpButtonOnFormSite" class="redButton">
+						<p style="font-size:10px;">Pomoc ▼</p>
+					</div>
+					<div id="contactBoxOnFormSite">
+						<div class="splitBox">
+							<p>Pytania o treść formularza proszę kierować do: </p><p><a href="mailto:andrzej.wrona@woodward.com"> Andrzej Wrona </a></p><p>lub</p><p><a href="mailto:anna.rajzer@woodward.com"> Anna Rajzer </a></p>
 						</div>
-						<div id="kontakt">
-							<div id="pytania">
-								<p>Pytania o treść formularza proszę kierować do: </p><p><a href="mailto:andrzej.wrona@woodward.com"> Andrzej Wrona </a></p><p>lub</p><p><a href="mailto:anna.rajzer@woodward.com"> Anna Rajzer </a></p>
-							</div>
-							<div id="awarie">
-								<p> Awarie formularza proszę kierować do:</p><p ><a href="mailto:aleksandra.mieszkowska@woodward.com"> Aleksandra Mieszkowska </a></p> <p style="text-align:center">lub</p><p><a href="mailto:dawid.skorewicz@woodward.com"> Dawid Skórewicz </a></p>
-							</div>
+						<div class="splitBox">
+							<p> Awarie formularza proszę kierować do:</p><p ><a href="mailto:aleksandra.mieszkowska@woodward.com"> Aleksandra Mieszkowska </a></p> <p style="text-align:center">lub</p><p><a href="mailto:dawid.skorewicz@woodward.com"> Dawid Skórewicz </a></p>
 						</div>
 					</div>
-					<div id="Form">
-						<fieldset id="Podwykonawca" style="background-color:#fee4b4;border-color:#b44545;">
-						
-						
-							<h3 style="text-align:center"> Dane dotyczące Podwykonawcy </h3>
-							<br/>
-							
-							<label for="Nazwa"> Pełna nazwa firmy Podwykonawcy:</label>
-							<br />
-							<input type="text" name="Nazwa" id="nazwa" class="pole_tekstowe" value="" />
-							<br />
-							
-							
-							<label for="Koordynator"> Imię i Nazwisko Koordynatora ze strony Podwykonawcy: </label>
-							<br/>
-							<input type="text" name="Koordynator" class="pole_tekstowe" id="koordynator" value="" />
-							<br />
-							
-							
-							<label for="Opiekun"> Imię i Nazwisko Opiekuna Podwykonawcy - osoby odpowiedzialnej ze strony Woodward Poland: </label>
-							<br/>
-							<input type="text" name="Opiekun" class="pole_tekstowe" id="zlecajacy" value="" /><br />
-							
-							
-							<label for="Telefon"> Telefon kontaktowy do Opiekuna: </label>
-							<br/>
-							<input type="tel" name="telefon" id="telefon" class="pole_tekstowe" placeholder="111-111-111" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" />
-							<br/>
-							
-							
-							<label for="Czas_rozpoczecia"> Data rozpoczęcia pracy: </label><input type="date" class="pole_tekstowe" name="urodziny" min="2017-01-01" max="2050-12-31" style="width:150px" value=""id="rozp" /><br/>
-							<label for="Czas_zakonczenia"> Data zakończenia pracy: </label><input type="date" class="pole_tekstowe" name="urodziny" min="2017-01-01" max="2050-12-31" style="width:150px" value="" id="zak"/><br/>
-							
-							
-							<div id="zespol">
-								<label for="Sklad"> Skład zespołu Podwykonawcy - Imiona i Nazwiska wszystkich pracowników Firmy zewnętrznej wchodzących na teren zakładu: </label><br/>
-								<p>1. <input type="text" id="gosc_1" class="pole_tekstowe osoby" value="" placeholder="Jan Kowalski"/></p>
-								<p>2. <input type="text" id="gosc_2" class="pole_tekstowe osoby" value="" placeholder="Jan Kowalski"/></p>
-								<p>3. <input type="text" id="gosc_3" class="pole_tekstowe osoby" value="" placeholder="Jan Kowalski"/></p>
-							</div>
-							<div id="dodaj_podwykonawce">
-								
-								<p style="font-size:12px;">Dodaj</p>
-							</div><br/>
-						
-						</fieldset>	
-						<fieldset id="Praca" style="background-color:#fee4b4;border-color:#b44545;">	
+				</div>
+				<div id="formParts">
+					<fieldset class="formPart" style="background-color:#fee4b4;border-color:#b44545;">
 					
 					
-							<h3 style="text-align:center"> Dane dotyczące wykonywanych prac: </h3>
+						<h3 style="text-align:center"> Dane dotyczące Podwykonawcy </h3>
+						<br/>
+						
+						<label for="Name"> Pełna nazwa firmy Podwykonawcy:</label>
+						<br />
+						<input type="text" name="Name" id="name" class="textField" value="" />
+						<br />
+						
+						
+						<label for="Coordinator"> Imię i Nazwisko Koordynatora ze strony Podwykonawcy: </label>
+						<br/>
+						<input type="text" name="Coordinator" class="textField" id="coordinator" value="" />
+						<br />
+						
+						
+						<label for="Supervisor"> Imię i Nazwisko Opiekuna Podwykonawcy - osoby odpowiedzialnej ze strony Woodward Poland: </label>
+						<br/>
+						<input type="text" name="Supervisor" class="textField" id="supervisor" value="" /><br />
+						
+						
+						<label for="Phone"> Telefon kontaktowy do Opiekuna: </label>
+						<br/>
+						<input type="tel" name="Phone" id="phone" class="textField" placeholder="111-111-111" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" />
+						<br/>
+						
+						
+						<label for="StartTime"> Data rozpoczęcia pracy: </label><input type="date" class="textField" name="StartTime" min="2017-01-01" max="2050-12-31" style="width:150px" value=""id="startTime" /><br/>
+						<label for="EndTime"> Data zakończenia pracy: </label><input type="date" class="textField" name="EndTime" min="2017-01-01" max="2050-12-31" style="width:150px" value="" id="endTime"/><br/>
+						
+						
+						<div id="teamOnFormSite">
+							<label for="Sklad"> Skład zespołu Podwykonawcy - Imiona i Nazwiska wszystkich pracowników Firmy zewnętrznej wchodzących na teren zakładu: </label><br/>
+							<p>1. <input type="text" id="visitor_1" class="textField people" value="" placeholder="Jan Kowalski"/></p>
+							<p>2. <input type="text" id="visitor_2" class="textField people" value="" placeholder="Jan Kowalski"/></p>
+							<p>3. <input type="text" id="visitor_3" class="textField people" value="" placeholder="Jan Kowalski"/></p>
+						</div>
+						<div id="addPersonButton" class="brightButton">
 							
-							<br/>
-							
-							<p style="margin: 0px;"> Wybierz obszary wykonywanych prac: </p><br/>
-							<table>
-								<tr>
-									<td><input type="checkbox" id="obszar_1" value="wartość" /></td>
-									<td><p style="font-size:14px;">Produkcja hala B</p></td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" id="obszar_2" value="wartość" /></td>
-									<td><p style="font-size:14px;">Produkcja hala B1</p></td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" id="obszar_3" value="wartość" /></td>
-									<td><p style="font-size:14px;">Open space budynek A I piętro</p></td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" id="obszar_4" value="wartość" /></td>
-									<td><p style="font-size:14px;">Open space budynek A parter</p></td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" id="obszar_5" value="wartość" /></td>
-									<td><p style="font-size:14px;">Open space budynek A1 I piętro</p></td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" id="obszar_6" value="wartość" /></td>
-									<td><p style="font-size:14px;">Open space budynek A1 parter</p></td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" id="obszar_7" value="wartość" /></td>
-									<td><p style="font-size:14px;">Open space budynek B1 antresola</p></td>
-								</tr>
-							</table>
-								
-							<br/>
-							
-							
-							<label for="Opis"> Woodward Poland zleca Podwykonawcy następujące prace:</label><br />
-							<textarea rows="10" cols="40" name="Opis" id="opis" class="pole_tekstowe" style="height:106px; text-align:left; padding:10px; line-height: 1.2em; resize: none;" placeholder="Krótki opis, na przykład: prace elektryczne"></textarea><br />
-							
-							
-							<p style="margin: 0px;"> Odznacz te odzaje prac, które nie będą wykonywane: </p><br/>
-							<table>
-								<tr>
-									<td><input type="checkbox" id="pytanie_1" value="wartość" checked="checked"/></td>
-									<td><p style="font-size:14px;">Prace pożarowo niebezpieczne (spawanie, lutowanie, cięcie, używanie otwartego ognia i cieczy o temp. zapłonu poniżej 55 stopni C). </p><br/></td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" id="pytanie_2" value="wartość" checked="checked" /></td>
-									<td><p style="font-size:14px;">Praca na wysokości na nieogrodzonej powierzchni - dach, krawędź dachu.</p></td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" id="pytanie_3" value="wartość" checked="checked" /></td>
-									<td><p style="font-size:14px;">Prace remontowo-budowlane bez wstrzymania ruchu zakładu.</p></td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" id="pytanie_4" value="wartość" checked="checked" /></td>
-									<td><p style="font-size:14px;">Prace w obrębie magazynu wysokiego składowania.</p></td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" id="pytanie_5" value="wartość" checked="checked" /></td>
-									<td><p style="font-size:14px;">Prace przy użyciu środków chemicznych dostaczonych przez Podwykonawcę. </p></td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" id="pytanie_6" value="wartość" checked="checked" /></td>
-									<td><p style="font-size:14px;">Prace w obrębie strefy produkcyjnej. </p></td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" id="pytanie_7" value="wartość" checked="checked" /></td>
-									<td><p style="font-size:14px;">Prace powodujące generowanie odpadów. </p></td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" id="pytanie_8" value="wartość" checked="checked" /></td>
-									<td><p style="font-size:14px;">Odłączenie napięcia instalacji, odłączenie mediów. </p></td>
-								</tr>
-							</table>
-						</fieldset>
+							<p>Dodaj</p>
+						</div><br/>
 					
-					</div>
-					<div id="podsumowanie" >
-						<fieldset style="height:100%; background-color:#fee4b4;border-color:#b44545;">
-							<div id="but_1">
-							<div id="podglad"  class="podglad"  >
-										Podgląd dokumentu
-							</div>
-							</div>
-							<div id="but_2">
-							<div id="robocze"  >
-										Zapis wersji roboczej
-							</div>
-							</div>
-						</fieldset>
-					</div>
-				</form>
-			</div>
+					</fieldset>	
+					<fieldset class="formPart" style="background-color:#fee4b4;border-color:#b44545;">	
+				
+				
+						<h3 style="text-align:center"> Dane dotyczące wykonywanych prac: </h3>
+						
+						<br/>
+						
+						<p style="margin: 0px;"> Wybierz obszary wykonywanych prac: </p><br/>
+						<table>
+							<tr>
+								<td><input type="checkbox" id="area_1" /></td>
+								<td><label for="area_1" style="font-size:14px;">Produkcja hala B</label></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="area_2"/></td>
+								<td><label for="area_2" style="font-size:14px;">Produkcja hala B1</label></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="area_3" /></td>
+								<td><label for="area_3" style="font-size:14px;">Open space budynek A I piętro</label></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="area_4" /></td>
+								<td><label for="area_4" style="font-size:14px;">Open space budynek A parter</label></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="area_5" /></td>
+								<td><label for="area_5" style="font-size:14px;">Open space budynek A1 I piętro</label></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="area_6" /></td>
+								<td><label for="area_6" style="font-size:14px;">Open space budynek A1 parter</label></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="area_7" /></td>
+								<td><label for="area_7" style="font-size:14px;">Open space budynek B1 antresola</label></td>
+							</tr>
+						</table>
+							
+						<br/>
+						
+						
+						<label for="Description"> Woodward Poland zleca Podwykonawcy następujące prace:</label><br />
+						<textarea rows="10" cols="40" name="Description" id="description" class="textField" style="height:106px; text-align:left; padding:10px; line-height: 1.2em; resize: none;" placeholder="Krótki opis, na przykład: prace elektryczne"></textarea><br />
+						
+						
+						<p style="margin: 0px;"> Odznacz te odzaje prac, które nie będą wykonywane: </p><br/>
+						<table>
+							<tr>
+								<td><input type="checkbox" id="question_1" checked="checked"/></td>
+								<td><label for="question_1" style="font-size:14px;">Prace pożarowo niebezpieczne (spawanie, lutowanie, cięcie, używanie otwartego ognia i cieczy o temp. zapłonu poniżej 55 stopni C). </label><br/></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="question_2" checked="checked" /></td>
+								<td><label for="question_2"  style="font-size:14px;">Praca na wysokości na nieogrodzonej powierzchni - dach, krawędź dachu.</label></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="question_3" checked="checked" /></td>
+								<td><label for="question_3"  style="font-size:14px;">Prace remontowo-budowlane bez wstrzymania ruchu zakładu.</label></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="question_4" checked="checked" /></td>
+								<td><label for="question_4"  style="font-size:14px;">Prace w obrębie magazynu wysokiego składowania.</label></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="question_5" checked="checked" /></td>
+								<td><label for="question_5"  style="font-size:14px;">Prace przy użyciu środków chemicznych dostaczonych przez Podwykonawcę. </label></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="question_6" checked="checked" /></td>
+								<td><label for="question_6"  style="font-size:14px;">Prace w obrębie strefy produkcyjnej. </label></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="question_7" checked="checked" /></td>
+								<td><label for="question_7"  style="font-size:14px;">Prace powodujące generowanie odpadów. </label></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="question_8" checked="checked" /></td>
+								<td><label for="question_8"  style="font-size:14px;">Odłączenie napięcia instalacji, odłączenie mediów. </label></td>
+							</tr>
+						</table>
+					</fieldset>
+				
+				</div>
+				<div id="summaryBoxOnFormSite" >
+					<fieldset style="height:100%; background-color:#fee4b4;border-color:#b44545;">
+						<div class="splitBox" style="padding-left: 10px;">
+						<div id="previewButton"  class="brightButton"  >
+									Podgląd dokumentu
+						</div>
+						</div>
+						<div class="splitBox">
+						<div id="saveDraftButton" class="brightButton" >
+									Zapis wersji roboczej
+						</div>
+						</div>
+					</fieldset>
+				</div>
+			</form>
 		</div>
-		<div id="container_1" class="schowaj">
-			<div id="container_2"> 
-				<div class="tresc" id="tresc">
-					<div class="stopka_gora">
-						<div class="stopka_gora_1">
-							<img src="logo.png" style="width:90%;">
-						</div>
-						<div class="stopka_gora_2">
-							<!--<p style="font-weight:bold;font-size: 11px;color:gray;"> Woodward Poland Sp. z o.o.</p>
+		<div id="documentSite" class="hidden">
+			
+			<div id="firstSiteDocument" class="documentPart"> 
+				<div class="documentText" id="text">
+					<div id="footer">
+						<img src="logo.png" width="300">
+						<!--<div class="stopka_gora_2">
+							<p style="font-weight:bold;font-size: 11px;color:gray;"> Woodward Poland Sp. z o.o.</p>
 							<p style="font-size: 11px;color:gray;"> ul. Skarbowa 32</p>
 							<p style="font-size: 11px;color:gray;">	32-005 Niepołomice - Polska</p>
 							<p style="font-size: 11px;color:gray;"> Tel: +48 12 29 51 300</p>
 							<p style="font-size: 11px;color:gray;"> Fax: +48 12 29 51 390 </p>
-							<p style="font-size: 11px;color:gray;"> NIP: 675-13-30-882 REGON: 300051301</p>-->
-						</div>
+							<p style="font-size: 11px;color:gray;"> NIP: 675-13-30-882 REGON: 300051301</p>
+						</div>-->
 					</div>
-					<div id="data" style="float:right;">
+					<div id="date" style="float:right;">
 					</div>
-					<div id="wstep">
+					<div id="entry">
 					
 					</div>
-					<div id="zespol_2">
+					<div id="teamOnDocumentSite">
 					
 					</div>
-					<div id="stand_ocena_ryzyka">
+					<div id="basicRiskAssertion">
 						
 					</div>
-					<div id="podpis" >
+					<div id="signatureOnFirstSite" >
 					
 					</div>
 					
 				</div>
 			</div>
-			<div id="container_3" class="schowaj"> 
-				<div class="tresc">
-					<div class="stopka_gora">
-						<div class="stopka_gora_1">
-							<img src="logo.png" style="width:90%;">
-						</div>
+			<div id="secondSiteDocument" class="documentPart hidden"> 
+				<div class="documentText">
+					<div class="footer">
+						<img src="logo.png" width="300">
 					</div>
-					<div id="stand_ocena_ryzyka2">
+					<div id="basicRiskAssertion2">
 						
 					</div>
-					<div id="podpis2" >
+					<div id="signatureOnSecondSite" >
 					
 					</div>
 					
 				</div>
 			</div>
-			<div id="kolumna">
-				<div id="podsumowanie2">
-					<div id="powrot">
+			<div id="infoPartOnDocumentSite">
+				<div id="summaryBoxOnDocumentSite">
+					<div id="backButton" class="redButton">
 						<p>Powrót</p>
 					</div>
-					<div id="drukuj">
+					<div id="printButton" class="redButton">
 						<p>Drukuj</p>
 					</div>
-					<div id="robocze2">
+					<div id="draftButton" class="redButton">
 						<p>Zapis wersji roboczej</p>
 					</div>
 				</div>
-				<div id="komunikaty">
+				<div id="supportBox">
 					<h3 style="text-align:center">Komunikaty o błędach</h3><br/>
 				</div>
-				<div id="pomoc">
-					<div id="kontakt_guzik2">
+				<div id="contactBoxOnDocumentSite">
+					<div id="helpButtonOnDocumentSite" class="redButton">
 								<p >Pomoc ▼</p>
 					</div>
-						<div id="kontakt2">
-							<!--<div id="pytania">-->
-								<br/><br/><br/><br/><br/><p style="text-align:center;">Pytania o treść formularza proszę kierować do: </p><p style="text-align:center;"><a href="mailto:andrzej.wrona@woodward.com"> Andrzej Wrona </a></p><p style="text-align:center;">lub</p><p style="text-align:center;"><a href="mailto:anna.rajzer@woodward.com"> Anna Rajzer </a></p>
-							<!--</div>
-							<div id="awarie">-->
-								<br/><p style="text-align:center;"> Awarie formularza proszę kierować do:</p><p style="text-align:center;" ><a href="mailto:aleksandra.mieszkowska@woodward.com"> Aleksandra Mieszkowska </a></p> <p style="text-align:center">lub</p><p style="text-align:center;"><a href="mailto:dawid.skorewicz@woodward.com"> Dawid Skórewicz </a></p>
-							<!--</div>-->
-						</div>
+					<div id="unwrappedContactBoxOnDocumentSite">
+						<br/><br/><br/><br/><br/><p style="text-align:center;">Pytania o treść formularza proszę kierować do: </p><p style="text-align:center;"><a href="mailto:andrzej.wrona@woodward.com"> Andrzej Wrona </a></p><p style="text-align:center;">lub</p><p style="text-align:center;"><a href="mailto:anna.rajzer@woodward.com"> Anna Rajzer </a></p>
+						<br/><p style="text-align:center;"> Awarie formularza proszę kierować do:</p><p style="text-align:center;" ><a href="mailto:aleksandra.mieszkowska@woodward.com"> Aleksandra Mieszkowska </a></p> <p style="text-align:center">lub</p><p style="text-align:center;"><a href="mailto:dawid.skorewicz@woodward.com"> Dawid Skórewicz </a></p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</body>
 </html>
 <script>
-	var i=3;
-	var goscie=[];
-	
 	$(document).ready(function() {
-		$('#powrot').click(function(event){
-			$("#container_1").addClass('schowaj');
-			$("#container_3").addClass('schowaj');
-			$("#container").removeClass('schowaj');
-			$("#container_1").removeClass('rozwiniete3');
+		var peopleCount=3;
+		var visitors;
+		$('#backButton').click(function(event){
+			$("#documentSite").addClass('hidden');
+			$("#secondSiteDocument").addClass('hidden');
+			$("#formSite").removeClass('hidden');
+			$("#documentSite").removeClass('unwrappedSmall');
 			
-			document.getElementById("stand_ocena_ryzyka").innerHTML = '';
-			document.getElementById("stand_ocena_ryzyka2").innerHTML = '';
-			document.getElementById("komunikaty").innerHTML = '';
-			document.getElementById("podpis2").innerHTML = '';
+			document.getElementById("basicRiskAssertion").innerHTML = '';
+			document.getElementById("basicRiskAssertion2").innerHTML = '';
+			document.getElementById("supportBox").innerHTML = '';
+			document.getElementById("signatureOnSecondSite").innerHTML = '';
 		});
 		
-		$('.podglad').click(function(event){
+		$('#previewButton').click(function(event){
 		
 			/* Odpowiada za przełączenie formularza na dokument*/
-			$("#container").addClass('schowaj');
-			$("#container_1").removeClass('schowaj');
+			$("#formSite").addClass('hidden');
+			$("#documentSite").removeClass('hidden');
 			
 			/* Definicja zmiennych skryptu  */
-			var dater = new Date($('#rozp').val());
-			var dayr = dater.getDate();
-			monthr = dater.getMonth() + 1;
-			yearr = dater.getFullYear();
-			var datez = new Date($('#zak').val());
-			dayz = datez.getDate();
-			monthz = datez.getMonth() + 1;
-			yearz = datez.getFullYear();
-			var nazwa = document.getElementById("nazwa").value;
-			var zlecajacy = document.getElementById("zlecajacy").value;
-			var opis = document.getElementById("opis").value;
-			var telefon = document.getElementById("telefon").value;
-			var Today = new Date();
-			var monthdzisiaj = Today.getMonth();
-			var dziendzisiaj = Today.getDate();
-			var rokdzisiaj = Today.getFullYear();
-			goscie =[];
-			$(".osoby").each(function(index, element){
-				goscie.push(element.value);
+			var startDate = new Date($('#startTime').val());
+			var startDay = startDate.getDate();
+			var startMonth = startDate.getMonth() + 1;
+			var startYear = startDate.getFullYear();
+			var endDate = new Date($('#endTime').val());
+			var endDay = endDate.getDate();
+			var endMonth = endDate.getMonth() + 1;
+			var endYear = endDate.getFullYear();
+			var todayDate = new Date();
+			var todayMonth = todayDate.getMonth();
+			var todayDay = todayDate.getDate();
+			var todayYear = todayDate.getFullYear();
+			var name = document.getElementById("name").value;
+			var supervisor = document.getElementById("supervisor").value;
+			var description = document.getElementById("description").value;
+			var phone = document.getElementById("phone").value;
+			visitors =[];
+			$(".people").each(function(index, element){
+				visitors.push(element.value);
 			});
-			$ilosc_osob = goscie.length;
-			var o=1;
-			var puste=1;
-			var blad=0;
-			/* Moderacja zmiennych skryptu */
-			if(dziendzisiaj<10){
-				dziendzisiaj='0'+dziendzisiaj;
+			var empty=true;
+			var error=0;
+		
+
+		/* Moderacja zmiennych skryptu */
+			if(todayDay<10){
+				todayDay='0'+todayDay;
 			}
-			if(monthdzisiaj<10){
-				monthdzisiaj='0'+monthdzisiaj;
+			if(todayMonth<10){
+				todayMonth='0'+todayMonth;
 			}
-			if(dayr<10){
-				dayr='0'+dayr;
+			if(startDay<10){
+				startDay='0'+startDay;
 			}
-			if(dayz<10){
-				dayz='0'+dayz;
+			if(endDay<10){
+				endDay='0'+endDay;
 			}
-			if(monthr<10){
-				monthr='0'+monthr;
+			if(startMonth<10){
+				startMonth='0'+startMonth;
 			}
-			if(monthr<10){
-				monthz='0'+monthz;
+			if(startMonth<10){
+				endMonth='0'+endMonth;
 			}
 			
 			
 			/* Data dokumentu, numer dokumentu, tytuł dokumentu */
-			document.getElementById("data").innerHTML = '<p style="font-size:14px;float:right">Niepołomice, '+dziendzisiaj+'.'+monthdzisiaj+'.'+rokdzisiaj+'</p><br/><br/><p style="text-align:center;font-weight:bold;font-size:20px;">Podwykonawca</p><p style="text-align:center;font-size:18px;">Numer/'+dayr+'.'+monthr+'-'+dayz+'.'+monthz+'/'+nazwa+'</p><br/>'
+			document.getElementById("date").innerHTML = '<p style="font-size:14px;float:right">Niepołomice, '+todayDay+'.'+todayMonth+'.'+todayYear+'</p><br/><br/><p style="text-align:center;font-weight:bold;font-size:20px;">Podwykonawca</p><p style="text-align:center;font-size:18px;">Numer/'+startDay+'.'+startMonth+'-'+endDay+'.'+endMonth+'/'+name+'</p><br/>'
 			/*;<p><a style="font-weight:bold;">Dotyczy:</a> upoważnienia Pracowników Firmy '+nazwa+' do przebywania i wykonywania zleconych prac na terenie Woodward Poland</p><br/>';*/
 			
 			/*Osoba zlecająca i kontakt do niej */
-			document.getElementById("wstep").innerHTML = '<table style="font-weight:bold;"><tr><td style="width:250px;height:30px;line-height:30px;">Zgłaszający:</td><td>'+zlecajacy+'</td></tr><tr><td style="width:250px;height:30px;line-height: 30px;">Numer kontaktowy:</td><td>'+telefon+'</td></tr></table><br/>';
-			
+			document.getElementById("entry").innerHTML = '<table style="font-weight:bold;"><tr><td style="width:250px;height:30px;line-height:30px;">Zgłaszający:</td><td>'+supervisor+'</td></tr><tr><td style="width:250px;height:30px;line-height: 30px;">Numer kontaktowy:</td><td>'+phone+'</td></tr></table><br/>';
 			
 			/* Termin wykonywania pracy, nazwa Podwykonawcy, opis pracy, nazwisko zlecającego */
-			if(dayr==dayz&& monthr==monthz){
-				document.getElementById("wstep").innerHTML += '<p> W dniu <a style="font-weight:bold;">'+dayr+'-'+monthr+'-'+yearr+'</a> na terenie Woodward Poland Sp. z o.o. firma <a style="font-weight:bold;">'+nazwa+'</a> będzie wykonywała prace'+opis+'.</p><p> Praca będzie się odbywać na obszarze / obszarach:</p>';
+			if(startDay==endDay&& startMonth==endMonth){
+				document.getElementById("entry").innerHTML += '<p> W dniu <a style="font-weight:bold;">'+startDay+'-'+startMonth+'-'+startYear+'</a> na terenie Woodward Poland Sp. z o.o. firma <a style="font-weight:bold;">'+name+'</a> będzie wykonywała prace'+description+'.</p><p> Praca będzie się odbywać na obszarze / obszarach:</p>';
 			}
 			else{
-				document.getElementById("wstep").innerHTML += '<p> W dniach <a style="font-weight:bold;">'+dayr+'-'+monthr+'-'+yearr+' - '+dayz+'-'+monthz+'-'+yearz+'</a> na terenie Woodward Poland Sp. z o.o. firma <a style="font-weight:bold;">'+nazwa+'</a> będzie wykonywała prace:'+opis+'.</p><p> Praca będzie się odbywać na obszarze / obszarach:</p>';
+				document.getElementById("entry").innerHTML += '<p> W dniach <a style="font-weight:bold;">'+startDay+'-'+startMonth+'-'+startYear+' - '+endDay+'-'+endMonth+'-'+endYear+'</a> na terenie Woodward Poland Sp. z o.o. firma <a style="font-weight:bold;">'+name+'</a> będzie wykonywała prace:'+description+'.</p><p> Praca będzie się odbywać na obszarze / obszarach:</p>';
 			}
-			if ($("#obszar_1").is(':checked')){
-				document.getElementById("wstep").innerHTML += '<p>  • Produkcja hala B</p>'; 
+			if ($("#area_1").is(':checked')){
+				document.getElementById("entry").innerHTML += '<p>  • Produkcja hala B</p>'; 
 			}
-			if ($("#obszar_2").is(':checked')){
-				document.getElementById("wstep").innerHTML += '<p>  • Produkcja hala B1</p>'; 
+			if ($("#area_2").is(':checked')){
+				document.getElementById("entry").innerHTML += '<p>  • Produkcja hala B1</p>'; 
 			}
-			if ($("#obszar_3").is(':checked')){
-				document.getElementById("wstep").innerHTML += '<p>  • Open space budynek A I piętro</p>'; 
+			if ($("#area_3").is(':checked')){
+				document.getElementById("entry").innerHTML += '<p>  • Open space budynek A I piętro</p>'; 
 			}
-			if ($("#obszar_4").is(':checked')){
-				document.getElementById("wstep").innerHTML += '<p>  • Open space budynek A parter</p>'; 
+			if ($("#area_4").is(':checked')){
+				document.getElementById("entry").innerHTML += '<p>  • Open space budynek A parter</p>'; 
 			}
-			if ($("#obszar_5").is(':checked')){
-				document.getElementById("wstep").innerHTML += '<p>  • Open space budynek A1 I piętro</p>'; 
+			if ($("#area_5").is(':checked')){
+				document.getElementById("entry").innerHTML += '<p>  • Open space budynek A1 I piętro</p>'; 
 			}
-			if ($("#obszar_6").is(':checked')){
-				document.getElementById("wstep").innerHTML += '<p>  • Open space budynek A1 parter</p>'; 
+			if ($("#area_6").is(':checked')){
+				document.getElementById("entry").innerHTML += '<p>  • Open space budynek A1 parter</p>'; 
 			}
-			if ($("#obszar_7").is(':checked')){
-				document.getElementById("wstep").innerHTML += '<p>  • Open space budynek B1 antresola</p>'; 
+			if ($("#area_7").is(':checked')){
+				document.getElementById("entry").innerHTML += '<p>  • Open space budynek B1 antresola</p>'; 
 			}
-			document.getElementById("wstep").innerHTML +='<br/>';
+			document.getElementById("entry").innerHTML +='<br/>';
 						
 			/*Koordynator i skład zespołu */
-			var koordynator = document.getElementById("koordynator").value;
-			document.getElementById("zespol_2").innerHTML = '<p> Koordynatorem prac od strony Podwykonawcy, sprawującym nadzór nad bezpieczeństwem i higieną pracy pracowników zatrudnionych w tym samym miejscu pracy (Ustawa Kodeks Pracy Art. 208 ust.1; Dz. U. 1974 NR 24 poz. 141) będzie Pan / Pani: <a style="font-weight:bold;">'+ koordynator + '</a>.</p><br/>';
+			var coordinator = document.getElementById("coordinator").value;
+			document.getElementById("teamOnDocumentSite").innerHTML = '<p> Koordynatorem prac od strony Podwykonawcy, sprawującym nadzór nad bezpieczeństwem i higieną pracy pracowników zatrudnionych w tym samym miejscu pracy (Ustawa Kodeks Pracy Art. 208 ust.1; Dz. U. 1974 NR 24 poz. 141) będzie Pan / Pani: <a style="font-weight:bold;">'+ coordinator + '</a>.</p><br/>';
 			
-			for(var b=0; b<$ilosc_osob; b++){
-				if(goscie[b]==""){
+			for(var b=0; b<visitors.length; b++){
+				if(visitors[b]==""){
 					continue;
 				}
 				else{
-					puste=0;
+					empty=false;
 				}
 			}
-			if(puste==1){
-				document.getElementById("zespol_2").innerHTML += '<p> Na teren zakładu Woodward Poland będzie wchodził jedynie Koordynator.</p>';
+			if(empty==true){
+				document.getElementById("teamOnDocumentSite").innerHTML += '<p> Na teren zakładu Woodward Poland będzie wchodził jedynie Koordynator.</p>';
 			}
-			else if(puste==0){
-				document.getElementById("zespol_2").innerHTML += '<p> Poza Koordynatorem na teren zakładu Woodward Poland będą wchodzić następujące osoby:</p>';
-				for(var a=0; a<$ilosc_osob; a++){
-					if(goscie[a]==""){
+			else if(empty==false){
+				var personIndex = 1;
+				document.getElementById("teamOnDocumentSite").innerHTML += '<p> Poza Koordynatorem na teren zakładu Woodward Poland będą wchodzić następujące osoby:</p>';
+				for(var a=0; a<visitors.length; a++){
+					if(visitors[a]==""){
 						continue;
 					}
 					else {
-						document.getElementById("zespol_2").innerHTML +='<p>'+o+'. '+ goscie[a]+'</p>';
-						o=o+1;
+						document.getElementById("teamOnDocumentSite").innerHTML +='<p>'+personIndex+'. '+ visitors[a]+'</p>';
+						personIndex=personIndex+1;
 					}
 				}
 			}
 			/*Zobowiązania koordynatora związane ze standardowa oceną ryzyka*/
-			document.getElementById("stand_ocena_ryzyka").innerHTML +='<br/><p> Koordynator zobowiązuje się do zapoznania pracowników wykonujących zleconą pracę z poniższą oceną ryzyka:</p>';
+			document.getElementById("basicRiskAssertion").innerHTML +='<br/><p> Koordynator zobowiązuje się do zapoznania pracowników wykonujących zleconą pracę z poniższą oceną ryzyka:</p>';
 			var ksy =0;
-			if ($("#pytanie_1").is(':checked')){
-				document.getElementById("stand_ocena_ryzyka").innerHTML += '<p>  • Ryzyko poparzenia części ciała - stosować ubranie ochronne, ryzyko wpadnięcia ciała obcego do oka - stosować okulary ochronne, ryzyko zaprószenia ognia - zaopatrzyć stanowisko pracy w gaśnicę i koc gaśniczy.</p>'; 
+			if ($("#question_1").is(':checked')){
+				document.getElementById("basicRiskAssertion").innerHTML += '<p>  • Ryzyko poparzenia części ciała - stosować ubranie ochronne, ryzyko wpadnięcia ciała obcego do oka - stosować okulary ochronne, ryzyko zaprószenia ognia - zaopatrzyć stanowisko pracy w gaśnicę i koc gaśniczy.</p>'; 
 			}
-			if ($("#pytanie_2").is(':checked')){
-				document.getElementById("stand_ocena_ryzyka").innerHTML += '<p>  • Ryzyko upadku z wysokości - stosować środki ochrony przed upadkiem.</p>'; 
+			if ($("#question_2").is(':checked')){
+				document.getElementById("basicRiskAssertion").innerHTML += '<p>  • Ryzyko upadku z wysokości - stosować środki ochrony przed upadkiem.</p>'; 
 			}
-			if ($("#pytanie_2").is(':checked')){
-				document.getElementById("stand_ocena_ryzyka").innerHTML += '<p>  • Ryzyko upadku z wysokości - stosować środki ochrony przed upadkiem.</p>'; 
+			if ($("#question_2").is(':checked')){
+				document.getElementById("basicRiskAssertion").innerHTML += '<p>  • Ryzyko upadku z wysokości - stosować środki ochrony przed upadkiem.</p>'; 
 			}
-			if ($("#pytanie_3").is(':checked')){
-				document.getElementById("stand_ocena_ryzyka").innerHTML += '<p>  • Ryzyko interakcji z osobami postronnymi – wygrodzić i zabezpieczyć obszar wykonywanych prac.</p>'; 
+			if ($("#question_3").is(':checked')){
+				document.getElementById("basicRiskAssertion").innerHTML += '<p>  • Ryzyko interakcji z osobami postronnymi – wygrodzić i zabezpieczyć obszar wykonywanych prac.</p>'; 
 			}
-			if ($("#pytanie_4").is(':checked')){
-				document.getElementById("stand_ocena_ryzyka").innerHTML += '<p>  • Ryzyko upadku materiałów z regałów wysokiego składowania – stosować hełm ochronny i kamizelkę odblaskową.</p>'; 
+			if ($("#question_4").is(':checked')){
+				document.getElementById("basicRiskAssertion").innerHTML += '<p>  • Ryzyko upadku materiałów z regałów wysokiego składowania – stosować hełm ochronny i kamizelkę odblaskową.</p>'; 
 			}
-			if ($("#pytanie_5").is(':checked')){
-				document.getElementById("stand_ocena_ryzyka").innerHTML += '<p>  • Ryzyko związane z używaniem środków chemicznych – zapoznać pracowników z kartą charakterystyki środka chemicznego, stosować w odpowiednio oznakowanych opakowaniach, stosować odpowiednie środki ochrony indywidualnej. </p>'; 
+			if ($("#question_5").is(':checked')){
+				document.getElementById("basicRiskAssertion").innerHTML += '<p>  • Ryzyko związane z używaniem środków chemicznych – zapoznać pracowników z kartą charakterystyki środka chemicznego, stosować w odpowiednio oznakowanych opakowaniach, stosować odpowiednie środki ochrony indywidualnej. </p>'; 
 			}
-			if ($("#pytanie_6").is(':checked')){
-				document.getElementById("stand_ocena_ryzyka").innerHTML += '<p>  • Stosować obuwie ochronne i kamizelki odblaskowe.</p>'; 
+			if ($("#question_6").is(':checked')){
+				document.getElementById("basicRiskAssertion").innerHTML += '<p>  • Stosować obuwie ochronne i kamizelki odblaskowe.</p>'; 
 			}
 			
 			/*Zobowiązania koordynatora związane z dodatkowymi wymaganiami ze względu na specyfikę wykonywanych prac*/
-			document.getElementById("stand_ocena_ryzyka").innerHTML +='<br/><p> Wymagania dodatkowe związane ze specyfiką wykonywanych prac:</p>';
+			document.getElementById("basicRiskAssertion").innerHTML +='<br/><p> Wymagania dodatkowe związane ze specyfiką wykonywanych prac:</p>';
 			
-			if ($("#pytanie_1").is(':checked')){
-				document.getElementById("stand_ocena_ryzyka").innerHTML += '<p>  • Przed rozpoczęciem pracy należy otrzymać pozwolenie na prace pożarowo niebezpieczne (kontakt w dziale BHP).</p><p>  • Podczas prac pożarowo niebezpiecznych wyposażyć stanowisko w gaśnicę oraz koc gaśniczy.</p>'; 
+			if ($("#question_1").is(':checked')){
+				document.getElementById("basicRiskAssertion").innerHTML += '<p>  • Przed rozpoczęciem pracy należy otrzymać pozwolenie na prace pożarowo niebezpieczne (kontakt w dziale BHP).</p><p>  • Podczas prac pożarowo niebezpiecznych wyposażyć stanowisko w gaśnicę oraz koc gaśniczy.</p>'; 
 				ksy=+1;
 			}
-			if ($("#pytanie_2").is(':checked')){
-				document.getElementById("stand_ocena_ryzyka").innerHTML += '<p>  • Stosować właściwy sprzęt ochrony przed upadkiem.</p>'; 
+			if ($("#question_2").is(':checked')){
+				document.getElementById("basicRiskAssertion").innerHTML += '<p>  • Stosować właściwy sprzęt ochrony przed upadkiem.</p>'; 
 				ksy=+1;
 			}
-			if ($("#pytanie_3").is(':checked')){
-				document.getElementById("stand_ocena_ryzyka").innerHTML += '<p>  • Przed rozpoczęciem wygrodzić teren prac remontowo budowlanych i zabezpieczyć przed dostępem osób niepowołanych.</p>'; 
+			if ($("#question_3").is(':checked')){
+				document.getElementById("basicRiskAssertion").innerHTML += '<p>  • Przed rozpoczęciem wygrodzić teren prac remontowo budowlanych i zabezpieczyć przed dostępem osób niepowołanych.</p>'; 
 				ksy=+1;
 			}
-			if ($("#pytanie_4").is(':checked')){
-				document.getElementById("stand_ocena_ryzyka").innerHTML += '<p>  • Na magazynie wysokiego składowania należy stosować hełmy ochronne.</p>'; 
+			if ($("#question_4").is(':checked')){
+				document.getElementById("basicRiskAssertion").innerHTML += '<p>  • Na magazynie wysokiego składowania należy stosować hełmy ochronne.</p>'; 
 				ksy=+1;
 			}
-			if ($("#pytanie_5").is(':checked')){
-				document.getElementById("stand_ocena_ryzyka").innerHTML += '<p>  • Przed rozpoczęciem pracy dostarczyć karty charakterystyk stosowanych środków chemicznych (farby, lakiery etc.) do działu BHP. </p>'; 
+			if ($("#question_5").is(':checked')){
+				document.getElementById("basicRiskAssertion").innerHTML += '<p>  • Przed rozpoczęciem pracy dostarczyć karty charakterystyk stosowanych środków chemicznych (farby, lakiery etc.) do działu BHP. </p>'; 
 				ksy=+1;
 			}
-			if ($("#pytanie_6").is(':checked')){
-				document.getElementById("stand_ocena_ryzyka").innerHTML += '<p>  • Podczas pracy na terenie produkcji należy stosować obuwie bezpieczne i kamizelki ochronne.</p>'; 
+			if ($("#question_6").is(':checked')){
+				document.getElementById("basicRiskAssertion").innerHTML += '<p>  • Podczas pracy na terenie produkcji należy stosować obuwie bezpieczne i kamizelki ochronne.</p>'; 
 				ksy=+1;
 			}
-			if ($("#pytanie_7").is(':checked')){
-				document.getElementById("stand_ocena_ryzyka").innerHTML += '<p>  • Odpady powstałe w wyniku pracy należy zabrać ze sobą i zutylizować we własnym zakresie, jeśli nie uzgodniono inaczej.</p>'; 
+			if ($("#question_7").is(':checked')){
+				document.getElementById("basicRiskAssertion").innerHTML += '<p>  • Odpady powstałe w wyniku pracy należy zabrać ze sobą i zutylizować we własnym zakresie, jeśli nie uzgodniono inaczej.</p>'; 
 				ksy=+1;
 			}
-			if ($("#pytanie_8").is(':checked')){
-				document.getElementById("stand_ocena_ryzyka").innerHTML += '<p>  • Przed odłączeniem mediów należy powiadomić właściciela obszaru.</p>'; 
+			if ($("#question_8").is(':checked')){
+				document.getElementById("basicRiskAssertion").innerHTML += '<p>  • Przed odłączeniem mediów należy powiadomić właściciela obszaru.</p>'; 
 				ksy=+1;
 			}
 			if(ksy==0){
-				document.getElementById("stand_ocena_ryzyka").innerHTML = '';
+				document.getElementById("basicRiskAssertion").innerHTML = '';
 			}
 			
-			document.getElementById("podpis").innerHTML = '<br/><br/><p style="float:left">Ja, '+koordynator+' zobowiązyję się przestrzegać przepisów dotyczących bezpieczeństwa i higieny pracy obowiązujących w Woodward Poland Sp. z o.o. wynikajacych z ple ple ple ple.</p><br/><br/><br/><br/><p style="float:right;"> Zapoznałem się i wyrażam zgodę,</p><br/><br/><br/>					<p style="float:right;">...........................................</p>'
+			document.getElementById("signatureOnFirstSite").innerHTML = '<br/><br/><p style="float:left">Ja, '+coordinator+' zobowiązyję się przestrzegać przepisów dotyczących bezpieczeństwa i higieny pracy obowiązujących w Woodward Poland Sp. z o.o. wynikajacych z ple ple ple ple.</p><br/><br/><br/><br/><p style="float:right;"> Zapoznałem się i wyrażam zgodę,</p><br/><br/><br/><p style="float:right;">...........................................</p>'
 			
 			
 			
-			if ($('#tresc')[0].scrollHeight >  $('#tresc')[0].offsetHeight) {
-				$("#container_3").removeClass('schowaj');
-				$("#container_1").addClass('rozwiniete3');
-				document.getElementById("stand_ocena_ryzyka").innerHTML ='';
-				document.getElementById("podpis").innerHTML = '';
+			if ($('#text')[0].scrollHeight >  $('#text')[0].offsetHeight) {
+				$("#secondSiteDocument").removeClass('hidden');
+				$("#documentSite").addClass('unwrappedSmall');
+				document.getElementById("basicRiskAssertion").innerHTML ='';
+				document.getElementById("signatureOnFirstSite").innerHTML = '';
 				/*Zobowiązania koordynatora związane ze standardowa oceną ryzyka*/
-				document.getElementById("stand_ocena_ryzyka2").innerHTML +='<br/><p> Koordynator zobowiązuje się do zapoznania pracowników wykonujących zleconą pracę z poniższą oceną ryzyka:</p>';
+				document.getElementById("basicRiskAssertion2").innerHTML +='<br/><p> Koordynator zobowiązuje się do zapoznania pracowników wykonujących zleconą pracę z poniższą oceną ryzyka:</p>';
 				
-				if ($("#pytanie_1").is(':checked')){
-					document.getElementById("stand_ocena_ryzyka2").innerHTML += '<p>  • Ryzyko poparzenia części ciała - stosować ubranie ochronne, ryzyko wpadnięcia ciała obcego do oka - stosować okulary ochronne, ryzyko zaprószenia ognia - zaopatrzyć stanowisko pracy w gaśnicę i koc gaśniczy.</p>'; 
+				if ($("#question_1").is(':checked')){
+					document.getElementById("basicRiskAssertion2").innerHTML += '<p>  • Ryzyko poparzenia części ciała - stosować ubranie ochronne, ryzyko wpadnięcia ciała obcego do oka - stosować okulary ochronne, ryzyko zaprószenia ognia - zaopatrzyć stanowisko pracy w gaśnicę i koc gaśniczy.</p>'; 
 				}
-				if ($("#pytanie_2").is(':checked')){
-					document.getElementById("stand_ocena_ryzyka2").innerHTML += '<p>  • Ryzyko upadku z wysokości - stosować środki ochrony przed upadkiem.</p>'; 
+				if ($("#question_2").is(':checked')){
+					document.getElementById("basicRiskAssertion2").innerHTML += '<p>  • Ryzyko upadku z wysokości - stosować środki ochrony przed upadkiem.</p>'; 
 				}
-				if ($("#pytanie_2").is(':checked')){
-					document.getElementById("stand_ocena_ryzyka2").innerHTML += '<p>  • Ryzyko upadku z wysokości - stosować środki ochrony przed upadkiem.</p>'; 
+				if ($("#question_2").is(':checked')){
+					document.getElementById("basicRiskAssertion2").innerHTML += '<p>  • Ryzyko upadku z wysokości - stosować środki ochrony przed upadkiem.</p>'; 
 				}
-				if ($("#pytanie_3").is(':checked')){
-					document.getElementById("stand_ocena_ryzyka2").innerHTML += '<p>  • Ryzyko interakcji z osobami postronnymi – wygrodzić i zabezpieczyć obszar wykonywanych prac.</p>'; 
+				if ($("#question_3").is(':checked')){
+					document.getElementById("basicRiskAssertion2").innerHTML += '<p>  • Ryzyko interakcji z osobami postronnymi – wygrodzić i zabezpieczyć obszar wykonywanych prac.</p>'; 
 				}
-				if ($("#pytanie_4").is(':checked')){
-					document.getElementById("stand_ocena_ryzyka2").innerHTML += '<p>  • Ryzyko upadku materiałów z regałów wysokiego składowania – stosować hełm ochronny i kamizelkę odblaskową.</p>'; 
+				if ($("#question_4").is(':checked')){
+					document.getElementById("basicRiskAssertion2").innerHTML += '<p>  • Ryzyko upadku materiałów z regałów wysokiego składowania – stosować hełm ochronny i kamizelkę odblaskową.</p>'; 
 				}
-				if ($("#pytanie_5").is(':checked')){
-					document.getElementById("stand_ocena_ryzyka2").innerHTML += '<p>  • Ryzyko związane z używaniem środków chemicznych – zapoznać pracowników z kartą charakterystyki środka chemicznego, stosować w odpowiednio oznakowanych opakowaniach, stosować odpowiednie środki ochrony indywidualnej. </p>'; 
+				if ($("#question_5").is(':checked')){
+					document.getElementById("basicRiskAssertion2").innerHTML += '<p>  • Ryzyko związane z używaniem środków chemicznych – zapoznać pracowników z kartą charakterystyki środka chemicznego, stosować w odpowiednio oznakowanych opakowaniach, stosować odpowiednie środki ochrony indywidualnej. </p>'; 
 				}
-				if ($("#pytanie_6").is(':checked')){
-					document.getElementById("stand_ocena_ryzyka2").innerHTML += '<p>  • Stosować obuwie ochronne i kamizelki odblaskowe.</p>'; 
+				if ($("#question_6").is(':checked')){
+					document.getElementById("basicRiskAssertion2").innerHTML += '<p>  • Stosować obuwie ochronne i kamizelki odblaskowe.</p>'; 
 				}
 				
 				
 				/*Zobowiązania koordynatora związane z dodatkowymi wymaganiami ze względu na specyfikę wykonywanych prac*/
-				document.getElementById("stand_ocena_ryzyka2").innerHTML +='<br/><p> Wymagania dodatkowe związane ze specyfiką wykonywanych prac:</p>';
+				document.getElementById("basicRiskAssertion2").innerHTML +='<br/><p> Wymagania dodatkowe związane ze specyfiką wykonywanych prac:</p>';
 				
-				if ($("#pytanie_1").is(':checked')){
-					document.getElementById("stand_ocena_ryzyka2").innerHTML += '<p>  • Przed rozpoczęciem pracy należy otrzymać pozwolenie na prace pożarowo niebezpieczne (kontakt w dziale BHP).</p><p>  • Podczas prac pożarowo niebezpiecznych wyposażyć stanowisko w gaśnicę oraz koc gaśniczy.</p>'; 
+				if ($("#question_1").is(':checked')){
+					document.getElementById("basicRiskAssertion2").innerHTML += '<p>  • Przed rozpoczęciem pracy należy otrzymać pozwolenie na prace pożarowo niebezpieczne (kontakt w dziale BHP).</p><p>  • Podczas prac pożarowo niebezpiecznych wyposażyć stanowisko w gaśnicę oraz koc gaśniczy.</p>'; 
 					ksy=+1;
 				}
-				if ($("#pytanie_2").is(':checked')){
-					document.getElementById("stand_ocena_ryzyka2").innerHTML += '<p>  • Stosować właściwy sprzęt ochrony przed upadkiem.</p>'; 
+				if ($("#question_2").is(':checked')){
+					document.getElementById("basicRiskAssertion2").innerHTML += '<p>  • Stosować właściwy sprzęt ochrony przed upadkiem.</p>'; 
 					ksy=+1;
 				}
-				if ($("#pytanie_3").is(':checked')){
-					document.getElementById("stand_ocena_ryzyka2").innerHTML += '<p>  • Przed rozpoczęciem wygrodzić teren prac remontowo budowlanych i zabezpieczyć przed dostępem osób niepowołanych.</p>'; 
+				if ($("#question_3").is(':checked')){
+					document.getElementById("basicRiskAssertion2").innerHTML += '<p>  • Przed rozpoczęciem wygrodzić teren prac remontowo budowlanych i zabezpieczyć przed dostępem osób niepowołanych.</p>'; 
 					ksy=+1;
 				}
-				if ($("#pytanie_4").is(':checked')){
-					document.getElementById("stand_ocena_ryzyka2").innerHTML += '<p>  • Na magazynie wysokiego składowania należy stosować hełmy ochronne.</p>'; 
+				if ($("#question_4").is(':checked')){
+					document.getElementById("basicRiskAssertion2").innerHTML += '<p>  • Na magazynie wysokiego składowania należy stosować hełmy ochronne.</p>'; 
 					ksy=+1;
 				}
-				if ($("#pytanie_5").is(':checked')){
-					document.getElementById("stand_ocena_ryzyka2").innerHTML += '<p>  • Przed rozpoczęciem pracy dostarczyć karty charakterystyk stosowanych środków chemicznych (farby, lakiery etc.) do działu BHP. </p>'; 
+				if ($("#question_5").is(':checked')){
+					document.getElementById("basicRiskAssertion2").innerHTML += '<p>  • Przed rozpoczęciem pracy dostarczyć karty charakterystyk stosowanych środków chemicznych (farby, lakiery etc.) do działu BHP. </p>'; 
 					ksy=+1;
 				}
-				if ($("#pytanie_6").is(':checked')){
-					document.getElementById("stand_ocena_ryzyka2").innerHTML += '<p>  • Podczas pracy na terenie produkcji należy stosować obuwie bezpieczne i kamizelki ochronne.</p>'; 
+				if ($("#question_6").is(':checked')){
+					document.getElementById("basicRiskAssertion2").innerHTML += '<p>  • Podczas pracy na terenie produkcji należy stosować obuwie bezpieczne i kamizelki ochronne.</p>'; 
 					ksy=+1;
 				}
-				if ($("#pytanie_7").is(':checked')){
-					document.getElementById("stand_ocena_ryzyka2").innerHTML += '<p>  • Odpady powstałe w wyniku pracy należy zabrać ze sobą i zutylizować we własnym zakresie, jeśli nie uzgodniono inaczej.</p>'; 
+				if ($("#question_7").is(':checked')){
+					document.getElementById("basicRiskAssertion2").innerHTML += '<p>  • Odpady powstałe w wyniku pracy należy zabrać ze sobą i zutylizować we własnym zakresie, jeśli nie uzgodniono inaczej.</p>'; 
 					ksy=+1;
 				}
-				if ($("#pytanie_8").is(':checked')){
-					document.getElementById("stand_ocena_ryzyka2").innerHTML += '<p>  • Przed odłączeniem mediów należy powiadomić właściciela obszaru.</p>'; 
+				if ($("#question_8").is(':checked')){
+					document.getElementById("basicRiskAssertion2").innerHTML += '<p>  • Przed odłączeniem mediów należy powiadomić właściciela obszaru.</p>'; 
 					ksy=+1;
 				}
 				if(ksy==0){
-					document.getElementById("stand_ocena_ryzyka").innerHTML = '';
+					document.getElementById("basicRiskAssertion").innerHTML = '';
 				}
-				document.getElementById("podpis2").innerHTML = '<br/><br/><p style="float:left">Ja, '+koordynator+' zobowiązyję się przestrzegać przepisów dotyczących bezpieczeństwa i higieny pracy obowiązujących w Woodward Poland Sp. z o.o. wynikajacych z ple ple ple ple.</p><br/><br/><br/><br/><p style="float:right;"> Zapoznałem się i wyrażam zgodę,</p><br/><br/><br/>					<p style="float:right;">...........................................</p>'
+				document.getElementById("signatureOnSecondSite").innerHTML = '<br/><br/><p style="float:left">Ja, '+coordinator+' zobowiązyję się przestrzegać przepisów dotyczących bezpieczeństwa i higieny pracy obowiązujących w Woodward Poland Sp. z o.o. wynikajacych z ple ple ple ple.</p><br/><br/><br/><br/><p style="float:right;"> Zapoznałem się i wyrażam zgodę,</p><br/><br/><br/>					<p style="float:right;">...........................................</p>'
 			}
 			
 			
 			/* Komunikaty o błędach */
-			document.getElementById("komunikaty").innerHTML ='<h3 style="text-align:center">Komunikaty o błędach</h3><br/>';
-			if(isNaN(dayr)){
-				document.getElementById("komunikaty").innerHTML +='<p> Nie podano lub niepoprawnie podano datę rozpoczęcia.</p><br/>';
-				blad= blad+1;
+			document.getElementById("supportBox").innerHTML ='<h3 style="text-align:center">Komunikaty o błędach</h3><br/>';
+			if(isNaN(startDay)){
+				document.getElementById("supportBox").innerHTML +='<p> Nie podano lub niepoprawnie podano datę rozpoczęcia.</p><br/>';
+				error= error+1;
 			}
-			if(isNaN(dayz)){
-				document.getElementById("komunikaty").innerHTML +='<p> Nie podano lub niepoprawnie podano datę zakończenia.</p><br/>';
-				blad= blad+1;
+			if(isNaN(endDay)){
+				document.getElementById("supportBox").innerHTML +='<p> Nie podano lub niepoprawnie podano datę zakończenia.</p><br/>';
+				error= error+1;
 			}
-			if(nazwa==""){
-				document.getElementById("komunikaty").innerHTML +='<p> Nie podano nazwy firmy Podwykonawcy.</p><br/>';
-				blad= blad+1;
+			if(name==""){
+				document.getElementById("supportBox").innerHTML +='<p> Nie podano nazwy firmy Podwykonawcy.</p><br/>';
+				error= error+1;
 			}
-			if(zlecajacy==""){
-				document.getElementById("komunikaty").innerHTML +='<p> Nie podano Imienia i Nazwiska Opiekuna Podwykonawcy.</p><br/>';
-				blad= blad+1;
+			if(supervisor==""){
+				document.getElementById("supportBox").innerHTML +='<p> Nie podano Imienia i Nazwiska Opiekuna Podwykonawcy.</p><br/>';
+				error= error+1;
 			}
-			if(opis==""){
-				document.getElementById("komunikaty").innerHTML +='<p> Nie podano opisu zleconej pracy.</p><br/>';
-				blad= blad+1;
+			if(description==""){
+				document.getElementById("supportBox").innerHTML +='<p> Nie podano opisu zleconej pracy.</p><br/>';
+				error= error+1;
 			}
-			if(koordynator==""){
-				document.getElementById("komunikaty").innerHTML +='<p> Nie podano Imienia i Nazwiska Koordynatora ze strony Podwykonawcy.</p><br/>';
-				blad= blad+1;
+			if(coordinator==""){
+				document.getElementById("supportBox").innerHTML +='<p> Nie podano Imienia i Nazwiska Koordynatora ze strony Podwykonawcy.</p><br/>';
+				error= error+1;
 			}
-			if($('#obszar_1').is(':checked')||$('#obszar_2').is(':checked')||$('#obszar_3').is(':checked')||$('#obszar_4').is(':checked')||$('#obszar_5').is(':checked')||$('#obszar_6').is(':checked')||$('#obszar_7').is(':checked')){}
+			if($('#area_1').is(':checked')||$('#area_2').is(':checked')||$('#area_3').is(':checked')||$('#area_4').is(':checked')||$('#area_5').is(':checked')||$('#area_6').is(':checked')||$('#area_7').is(':checked')){}
 			else{
-				document.getElementById("komunikaty").innerHTML +='<p> Nie wybrano żadnego obszaru wykonywanej pracy.</p><br/>';
-				blad= blad+1;
+				document.getElementById("supportBox").innerHTML +='<p> Nie wybrano żadnego obszaru wykonywanej pracy.</p><br/>';
+				error= error+1;
 			}
-			if(telefon==""){
-				document.getElementById("komunikaty").innerHTML +='<p> Nie podano numeru telefonu do Koordynatora ze strony Podwykonawcy.</p><br/>';
-				blad= blad+1;
+			if(phone==""){
+				document.getElementById("supportBox").innerHTML +='<p> Nie podano numeru telefonu do Koordynatora ze strony Podwykonawcy.</p><br/>';
+				error= error+1;
 			}
 			
 			
 			
-			if(blad==0){
-				document.getElementById("komunikaty").innerHTML +='<p style="color:black;font-weight:bold;"> Nie znaleziono żadnych błędów.</p>';
+			if(error==0){
+				document.getElementById("supportBox").innerHTML +='<p style="color:black;font-weight:bold;"> Nie znaleziono żadnych błędów.</p>';
 			}
-			else if(blad==1){
-				document.getElementById("komunikaty").innerHTML +='<p style="color:red;font-weight:bold;"> Znaleziono '+blad+' błąd.</p>';
+			else if(error==1){
+				document.getElementById("supportBox").innerHTML +='<p style="color:red;font-weight:bold;"> Znaleziono '+error+' błąd.</p>';
 			}
-			else if(blad==2||blad==3||blad==4){
-				document.getElementById("komunikaty").innerHTML +='<p style="color:red;font-weight:bold;"> Znaleziono '+blad+' błędy.</p>';
+			else if(error==2||error==3||error==4){
+				document.getElementById("supportBox").innerHTML +='<p style="color:red;font-weight:bold;"> Znaleziono '+error+' błędy.</p>';
 			}
-			else if(blad==5||blad==6||blad==7||blad==8||blad==9||blad==10||blad==11||blad==12||blad==13||blad==14||blad==15||blad==16||blad==17){
-				document.getElementById("komunikaty").innerHTML +='<p style="color:red;font-weight:bold;"> Znaleziono '+blad+' błędów.</p>';
+			else if(error==5||error==6||error==7||error==8||error==9||error==10||error==11||error==12||error==13||error==14||error==15||error==16||error==17){
+				document.getElementById("supportBox").innerHTML +='<p style="color:red;font-weight:bold;"> Znaleziono '+error+' błędów.</p>';
 			}
 			
 		});
 		
-		$('#dodaj_podwykonawce').click(function(event){
-			i=i+1;
-            input = jQuery('<p>'+i+'. <input type="text" id="gosc_'+i+ '" class="pole_tekstowe osoby" value="" placeholder="Jan Kowalski"/><br /></p>');
-			jQuery('#zespol').append(input);
+		$('#addPersonButton').click(function(event){
+			peopleCount=peopleCount+1;
+            input = jQuery('<p>'+peopleCount+'. <input type="text" id="visitor_'+peopleCount+ '" class="textField people" value="" placeholder="Jan Kowalski"/><br /></p>');
+			jQuery('#teamOnFormSite').append(input);
 		});
 		
 		
 	
-		$('#kontakt_guzik').click(function(){
-			if($("#Info").hasClass('rozwiniete')){
-				$("#Info").removeClass('rozwiniete');
-				document.getElementById('kontakt_guzik').innerHTML= '<p style="font-size:10px;">Pomoc ▼</p>';
+		$('#helpButtonOnFormSite').click(function(){
+			if($("#infoPartOnFormSite").hasClass('unwrappedMedium')){
+				$("#infoPartOnFormSite").removeClass('unwrappedMedium');
+				document.getElementById('helpButtonOnFormSite').innerHTML= '<p style="font-size:10px;">Pomoc ▼</p>';
 			}
 			else{
-				$("#Info").addClass('rozwiniete');
-				document.getElementById('kontakt_guzik').innerHTML= '<p style="font-size:10px;">Pomoc ▲</p> ';
+				$("#infoPartOnFormSite").addClass('unwrappedMedium');
+				document.getElementById('helpButtonOnFormSite').innerHTML= '<p style="font-size:10px;">Pomoc ▲</p> ';
 			}
 		});
-		$('#kontakt_guzik2').click(function(){
-			if($("#pomoc").hasClass('rozwiniete2')){
-				$("#pomoc").removeClass('rozwiniete2');
-				document.getElementById('kontakt_guzik2').innerHTML= '<p>Pomoc ▼</p>';
+		$('#helpButtonOnDocumentSite').click(function(){
+			if($("#contactBoxOnDocumentSite").hasClass('unwrappedBig')){
+				$("#contactBoxOnDocumentSite").removeClass('unwrappedBig');
+				document.getElementById('helpButtonOnDocumentSite').innerHTML= '<p>Pomoc ▼</p>';
 			}
 			else{
-				$("#pomoc").addClass('rozwiniete2');
-				document.getElementById('kontakt_guzik2').innerHTML= '<p>Pomoc ▲</p> ';
+				$("#contactBoxOnDocumentSite").addClass('unwrappedBig');
+				document.getElementById('helpButtonOnDocumentSite').innerHTML= '<p>Pomoc ▲</p> ';
 			}
 		});
 	});
 </script>
-
-<!-- 
