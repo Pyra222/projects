@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Wykonawca</title>
+		<title>Gość</title>
 		<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<style>
@@ -67,11 +67,15 @@
 			}
 			#previewButton{
 				float:left;
-				margin-left:190px;
+				margin-left:40px;
 			}
 			#saveDraftButton{
-				float:right;
-				margin-right:184px;
+				float:left;
+				margin-left:40px;
+			}
+			#pullDraftButton{
+				float:left;
+				margin-left:40px;
 			}
 			#addCompanyButton{
 				width: 200px;
@@ -149,12 +153,18 @@
 				display:table;
 				width:1100px;
 			}
-			.splitBox{
+			.splitBoxTwoPart{
 				width:540px;/*546px;*/
 				float: left;
 				display: table-cell;
 				margin:0px;
-			}		
+			}
+			.splitBoxThreePart{
+				width:360px;/*546px;*/
+				float: left;
+				display: table-cell;
+				margin:0px;
+			}	
 			.textField{					
 				background: white;
 				width: 400px;
@@ -204,6 +214,13 @@
 			#documentSite p, #infoAboutVisitorsForSecurity, #infoAboutVisitorsForAdmin{
 				margin-left: 15px;
 				margin-right: 15px;
+			}
+			#securityPart{
+				background-color: white;
+			}
+			#signature{
+				float: right;
+				margin-right:35px;
 			}
 			
 						
@@ -307,11 +324,25 @@
 						<p style="font-size:10px;">Pomoc ▼</p>
 					</div>
 					<div id="contactBoxOnFormSite">
-						<div class="splitBox">
-							<p>Pytania o treść formularza proszę kierować do: </p><p><a href="mailto:agnieszka.biernat@woodward.com"> Agnieszka Biernat </a></p><p>lub</p><p><a href="mailto:aleksandra.mieszkowska@woodward.com"> Aleksandra Mieszkowska </a></p>
+						<div class="splitBoxTwoPart">
+							<p>Pytania o treść formularza proszę kierować do: </p>
+							<p>
+								<a href="mailto:agnieszka.biernat@woodward.com"> Agnieszka Biernat </a>
+							</p>
+							<p>lub</p>
+							<p>
+								<a href="mailto:aleksandra.mieszkowska@woodward.com"> Aleksandra Mieszkowska </a>
+							</p>
 						</div>
-						<div class="splitBox">
-							<p> Awarie formularza proszę kierować do:</p><p ><a href="mailto:aleksandra.mieszkowska@woodward.com"> Aleksandra Mieszkowska </a></p> <p style="text-align:center">lub</p><p><a href="mailto:dawid.skorewicz@woodward.com"> Dawid Skórewicz </a></p>
+						<div class="splitBoxTwoPart">
+							<p> Awarie formularza proszę kierować do:</p>
+							<p >
+								<a href="mailto:aleksandra.mieszkowska@woodward.com"> Aleksandra Mieszkowska </a>
+							</p> 
+							<p style="text-align:center">lub</p>
+							<p>
+								<a href="mailto:dawid.skorewicz@woodward.com"> Dawid Skórewicz </a>
+							</p>
 						</div>
 					</div>
 				</div>
@@ -364,10 +395,6 @@
 						<input type="tel" name="Phone" id="phone" class="textField" placeholder="111-111-111" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" /><br/>
 						
 						
-						<label for="Department"> Numer departamentu osoby zapraszającej: </label>
-						<br/>
-						<input type="tel" name="Department" id="department" class="textField" placeholder="45-111" pattern="[45]{2}-[0-9]{3}" />
-						
 						
 						<table>
 							<tr>
@@ -412,8 +439,8 @@
 						<h3 style="text-align:center"> Dane dotyczące wizyty: </h3><br/>
 						
 						
-						<label for="Description"> Powód wizyty:</label><br />
-						<textarea rows="10" cols="40" name="Description" id="description" class="textField" style="height:50px; text-align:left; padding:10px; line-height: 1.2em; resize: none;" placeholder="Opis..."></textarea><br />
+						<!--<label for="Description"> Powód wizyty:</label><br />
+						<textarea rows="10" cols="40" name="Description" id="description" class="textField" style="height:50px; text-align:left; padding:10px; line-height: 1.2em; resize: none;" placeholder="Opis..."></textarea><br />-->
 						
 						
 						<label for="ConferenceRoom"> Wybierz salę, w której odbędzie się spotkanie: </label><br/>
@@ -424,12 +451,12 @@
 						<table>
 							<tr>
 								<td> <label for="withCatering">Tak, poproszę</label></td>
-								<td style="width:150px;" id="yesCatering"> <input type="checkbox" id="withCatering" /></td>
+								<td style="width:150px;" id="yesCatering"> <input type="checkbox" id="withCatering"  checked="checked"/></td>
 								<td> <label for="withoutCatering">Nie, dziękuję </label></td>
-								<td id="noCatering"><input type="checkbox" id="withoutCatering" checked="checked"/></td>
+								<td id="noCatering"><input type="checkbox" id="withoutCatering"/></td>
 							</tr>
 						</table>
-						<div id="cateringAccesories" class="hidden">
+						<div id="cateringAccesories">
 							<table>
 								<tr>
 									<td> <input type="checkbox" id="water"/></td>
@@ -468,10 +495,15 @@
 									<td></td>
 								</tr>
 							</table>
+							
+							
+							<label for="Department"> Numer departamentu osoby zapraszającej: </label>
+							<br/>
+							<input type="tel" name="Department" id="department" class="textField" placeholder="45-111" pattern="[45]{2}-[0-9]{3}" />
 						</div>
 						
-						<br/><label for="Description"> Dodatkowe informacje lub prośby:</label><br />
-						<textarea rows="10" cols="40" name="OtherInfo" id="otherInfo" class="textField" style="height:50px; text-align:left; padding:10px; line-height: 1.2em; resize: none;" placeholder=""></textarea><br />
+						<label for="Description"> Dodatkowe informacje lub prośby:</label><br />
+						<textarea rows="10" cols="40" name="OtherInfo" id="otherInfo" class="textField" style="height:50px; text-align:left; padding:10px; line-height: 1.2em; resize: none;" placeholder="taxi dla gościa, rezerwacja stolika na lunch, itp."></textarea><br />
 						<!--
 						
 						<br/>
@@ -525,14 +557,19 @@
 				</div>
 				<div id="summaryBoxOnFormSite" >
 					<fieldset style="height:100%; background-color:#fee4b4;border-color:#0072c6;">
-						<div class="splitBox" style="padding-left: 10px;">
+						<div class="splitBoxThreePart" style="padding-left: 10px;">
 						<div id="previewButton"  class="brightButton"  >
 									Podgląd dokumentu
 						</div>
 						</div>
-						<div class="splitBox">
+						<div class="splitBoxThreePart">
 						<div id="saveDraftButton" class="brightButton" >
 									Zapis wersji roboczej
+						</div>
+						</div>
+						<div class="splitBoxThreePart">
+						<div id="pullDraftButton" class="brightButton" >
+									Wczytanie wersji roboczej
 						</div>
 						</div>
 					</fieldset>
@@ -558,8 +595,7 @@
 					<p> Chciałbym / chciałabym zgłosić wizytę gości.</p>
 					<a id ="infoAboutVisitorsForAdmin"></a>
 					<a id ="infoAboutCatering"></a>
-					<a id="signature"></a>					
-					
+					<a id = "additionalInfo"></a>	
 				</div>
 			</div>
 			<div id="podsumowanie">
@@ -641,20 +677,18 @@
 </html>
 <script>
 	$(document).ready(function() {
-		var peopleCount=1;
-		var peopleCountSummary = 1;
-		var companyCount=1;
-		var visitors1=[];
-		var visitors2=[];	
-		var visitors3=[];	
-		var visitors4=[];	
-		var visitors5=[];		
+	
+		/* zmienna numberOfDayWithVisit jest potrzebna do dodawania kolejnych dni wizyty, gdy uzytkownik zaznaczy wizytę kilkudniową */
 		var numberOfDayWithVisit = 2;
+		
+		/* zmienne peopleCountX są potrzebne do dodawania nowych pól przy wpisywaniu nazwisk gości */
 		var peopleCount1=2;
 		var peopleCount2=2;
 		var peopleCount3=2;
 		var peopleCount4=2;
 		var peopleCount5=2;
+		
+		/* tablica nazw salek konferencyjnych, która jest wykorzystywana, aby poprawnie wyświetlać je na liście */
 		var arrayOfConferenceRoom = [
 			"Mickiewicz",
 			"Wierzynek",
@@ -675,37 +709,61 @@
 			"Kazimierz Wschód i Zachód",
 			"Spotkanie nie wymaga sali"
 		];
-		var arrayForFood = [
-			"1",
-			"2",
-			"3"
-		]
+		
+		/*guzik powrotu do strony formularza */
 		$('#backButton').click(function(event){
+		
+			/* dwie poniższe linijki sa odpowiedzialne za przechodzenie między stronami - formularzem i generowanymi wiadomościami */
 			$("#documentSite").addClass('hidden');
-			$("#formSite").removeClass('hidden');
-			/*$("#documentSite").removeClass('unwrappedSmall');
+			$("#formSite").removeClass('hidden');	
 			
-			document.getElementById("supportBox").innerHTML = '';
-			document.getElementById("signatureOnSecondSite").innerHTML = '';*/
-			
+			/* [poniższe linijki czyszczą generowane dokumentu z danych zaczerpniętych przy pierwszym podglądzie */
+			document.getElementById('infoAboutVisitorsForSecurity').innerHTML="";
+			document.getElementById('signature').innerHTML="";
+			document.getElementById('infoAboutVisitorsForAdmin').innerHTML="";
+			document.getElementById('infoAboutCatering').innerHTML="";
+			document.getElementById('additionalInfo').innerHTML="";			
 		});
 		
+		/* guzik odpowiedzialny za podgląd generowanych przez formularz wiadomości */
 		$('#previewButton').click(function(event){
 		
-			/* Odpowiada za przełączenie formularza na dokument*/
+			/* dwie poniższe linijki są odpowiedzialne za przechodzenie między stronami*/
 			$("#formSite").addClass('hidden');
 			$("#documentSite").removeClass('hidden');
+			
+			/* tablice zawierające nazwiska gości danej firmy */
+			var visitors1=[];
+			var visitors2=[];	
+			var visitors3=[];	
+			var visitors4=[];	
+			var visitors5=[];
+
+			/* zmienne trzymające nazwy zgłoszonych firm */
 			var company_1 = document.getElementById("company_1").value;
 			var company_2 = document.getElementById("company_2").value;
 			var company_3 = document.getElementById("company_3").value;
 			var company_4 = document.getElementById("company_4").value;
 			var company_5 = document.getElementById("company_5").value;
+			
+			/* data spotkania, gdy spotkanie jest jednodniowe */
 			var startDay = document.getElementById("startDay").value;
+			
+			/* godzina rozpoczęcia, gdy spotkanie jest jednodniowe */
 			var startTime = document.getElementById("startTime").value;
+			
+			/* godzina zakończenia gdy spotkanie jest jednodniowe */
 			var endTime = document.getElementById("endTime").value;
-			var y = 1;
+			
+			/* nazwisko osoby zapraszającej */
+			var supervisor = document.getElementById("supervisor").value;
+			
+			/* sala konferencyjna, w której odbędzie się spotkanie */
+			var conferenceRoom = document.getElementById("conferenceRoom").value;
+			
+			/* zmienna trzymająca ilość gości do cateringu */
+			var peopleCount = 0;
 			var z = 1;
-			console.log(visitors1.length);
 			$(".people1").each(function(index, element){
 				visitors1.push(element.value);
 			});
@@ -721,150 +779,56 @@
 			$(".people5").each(function(index, element){
 				visitors5.push(element.value);
 			});
+			peopleCount = countVisitorFunction( visitors1,visitors2,visitors3,visitors4,visitors5);
+/* Wypełnianie treści maili o wspólne informacje: datę wizyty, listę gości, podpis osoby zgłaszającej */			
 			if($('#oneDayVisitCheckbox').is(':checked')){
-				document.getElementById("infoAboutVisitorsForSecurity").innerHTML+= '<p>Termin: '+startDay+'</p><p>Godziny wizyty: '+startTime+' - '+endTime+'</p>';
+				addingTimeToDocument(startDay, startTime, endTime);
 			}
-			else{console.log("nie działa")};
+			else{console.log("Wizyta jest kilku dniowa, a ta funkcjonalność nie jest jeszcze obsługiwana.")};
 			
-			document.getElementById("infoAboutVisitorsForSecurity").innerHTML+='<p>Na teren Woodward Poland Sp. z o.o. wchodzić będą następujące osoby:</p><p>Firma: '+company_1+'</p>';
-			for( var x=0; x<visitors1.length; x++){
-				if(visitors1[x]==""){
-					continue;
-				}
-				else {
-					document.getElementById("infoAboutVisitorsForSecurity").innerHTML +='<p>'+
-					y+'. '+ visitors1[x]+'</p>';
-					y=y+1;
-				}
-			}
+			addingGuestToDocument(visitors1,company_1);
+			
 			if($(document.getElementById("companyTeam_2")).prop('class')!= 'hidden'){
-				document.getElementById("infoAboutVisitorsForSecurity").innerHTML+='<p>Firma: '+company_2+'</p>';
-				for( var x=0; x<visitors2.length; x++){
-					if(visitors2[x]==""){
-						continue;
-					}
-					else {
-						document.getElementById("infoAboutVisitorsForSecurity").innerHTML +='<p>'+
-						y+'. '+ visitors2[x]+'</p>';
-						y=y+1;
-					}
-				}
+				addingGuestToDocument(visitors2,company_2);
 			}
 			if($(document.getElementById("companyTeam_3")).prop('class')!= 'hidden'){
-				document.getElementById("infoAboutVisitorsForSecurity").innerHTML+='<p>Firma: '+company_3+'</p>';
-				for( var x=0; x<visitors3.length; x++){
-					if(visitors3[x]==""){
-						continue;
-					}
-					else {
-						document.getElementById("infoAboutVisitorsForSecurity").innerHTML +='<p>'+
-						y+'. '+ visitors3[x]+'</p>';
-						y=y+1;
-					}
-				}
+				addingGuestToDocument(visitors3,company_3);
 			}
 			if($(document.getElementById("companyTeam_4")).prop('class')!= 'hidden'){
-				document.getElementById("infoAboutVisitorsForSecurity").innerHTML+='<p>Firma: '+company_4+'</p>';
-				for( var x=0; x<visitors4.length; x++){
-					if(visitors4[x]==""){
-						continue;
-					}
-					else {
-						document.getElementById("infoAboutVisitorsForSecurity").innerHTML +='<p>'+
-						y+'. '+ visitors4[x]+'</p>';
-						y=y+1;
-					}
-				}
+				addingGuestToDocument(visitors4,company_4);
 			}
 			if($(document.getElementById("companyTeam_5")).prop('class')!= 'hidden'){
-				document.getElementById("infoAboutVisitorsForSecurity").innerHTML+='<p>Firma: '+company_5+'</p>';
-				for( var x=0; x<visitors5.length; x++){
-					if(visitors5[x]==""){
-						continue;
-					}
-					else {
-						document.getElementById("infoAboutVisitorsForSecurity").innerHTML +='<p>'+
-						y+'. '+ visitors5[x]+'</p>';
-						y=y+1;
-					}
-				}
+				addingGuestToDocument(visitors5,company_5);
+			}
+/* Wypełnienie podpisu w wiadomości do ochrony. */
+			document.getElementById("signature").innerHTML=supervisor;
+			
+/* Wypełnienie wiadomości do Administracji o catering, salę, dodatkowe prośby i dane osoby zapraszającej. */
+			addingConferenceRoomToDocument(conferenceRoom);
+			
+			/*addingCateringToDocument()*/
+			
+			if(document.getElementById('withCatering').checked == true){
+				
+				
+				addingParametersForCateringToDocument(startDay, startTime, endTime, conferenceRoom, peopleCount);
+				
+				if(document.getElementById('water').checked == true){document.getElementById('infoAboutCatering').innerHTML += '<p>woda</p>';}
+				if(document.getElementById('juice').checked == true){document.getElementById('infoAboutCatering').innerHTML += '<p>sok</p>';}
+				if(document.getElementById('coffee').checked == true){document.getElementById('infoAboutCatering').innerHTML += '<p>kawa w termosach</p>';}
+				if(document.getElementById('tea').checked == true){document.getElementById('infoAboutCatering').innerHTML += 'herbata w termosach</p>';}
+				if(document.getElementById('cookies').checked == true){document.getElementById('infoAboutCatering').innerHTML += '<p>ciastka</p>';}
+				if(document.getElementById('fruit').checked == true){document.getElementById('infoAboutCatering').innerHTML += '<p>owoce</p>';}
+				if(document.getElementById('peanut').checked == true){document.getElementById('infoAboutCatering').innerHTML += '<p>orzeszki</p>';}
+				if(document.getElementById('sandwiches').checked == true){document.getElementById('infoAboutCatering').innerHTML += '<p>kanapki</p>';}
+				if(document.getElementById('cake').checked == true){document.getElementById('infoAboutCatering').innerHTML += '<p>drożdżówki</p>';}
+				if(document.getElementById('tartinki').checked == true){document.getElementById('infoAboutCatering').innerHTML += '<p>patera tartinek</p>';}
+			}
+			else {
+				document.getElementById('infoAboutCatering').innerHTML = '<p>Nie potrzebuję cateringu. </p>';
 			}
 			
-			
-			
-			if($('#oneDayVisitCheckbox').is(':checked')){
-				document.getElementById("infoAboutVisitorsForAdmin").innerHTML+= '<p>Termin: '+startDay+'</p><p>Godziny wizyty: '+startTime+' - '+endTime+'</p>';
-			}
-			else{console.log("nie działa")};
-			
-			document.getElementById("infoAboutVisitorsForAdmin").innerHTML+='<p>Na teren Woodward Poland Sp. z o.o. wchodzić będą następujące osoby:</p><p>Firma: '+company_1+'</p>';
-			for( var x=0; x<visitors1.length; x++){
-				if(visitors1[x]==""){
-					continue;
-				}
-				else {
-					document.getElementById("infoAboutVisitorsForAdmin").innerHTML +='<p>'+
-					z+'. '+ visitors1[x]+'</p>';
-					z=z+1;
-				}
-			}
-			if($(document.getElementById("companyTeam_2")).prop('class')!= 'hidden'){
-				document.getElementById("infoAboutVisitorsForAdmin").innerHTML+='<p>Firma: '+company_2+'</p>';
-				for( var x=0; x<visitors2.length; x++){
-					if(visitors2[x]==""){
-						continue;
-					}
-					else {
-						document.getElementById("infoAboutVisitorsForAdmin").innerHTML +='<p>'+
-						z+'. '+ visitors2[x]+'</p>';
-						z=z+1;
-					}
-				}
-			}
-			if($(document.getElementById("companyTeam_3")).prop('class')!= 'hidden'){
-				document.getElementById("infoAboutVisitorsForAdmin").innerHTML+='<p>Firma: '+company_3+'</p>';
-				for( var x=0; x<visitors3.length; x++){
-					if(visitors3[x]==""){
-						continue;
-					}
-					else {
-						document.getElementById("infoAboutVisitorsForAdmin").innerHTML +='<p>'+
-						z+'. '+ visitors3[x]+'</p>';
-						z=z+1;
-					}
-				}
-			}
-			if($(document.getElementById("companyTeam_4")).prop('class')!= 'hidden'){
-				document.getElementById("infoAboutVisitorsForAdmin").innerHTML+='<p>Firma: '+company_4+'</p>';
-				for( var x=0; x<visitors4.length; x++){
-					if(visitors4[x]==""){
-						continue;
-					}
-					else {
-						document.getElementById("infoAboutVisitorsForAdmin").innerHTML +='<p>'+
-						z+'. '+ visitors4[x]+'</p>';
-						z=z+1;
-					}
-				}
-			}
-			if($(document.getElementById("companyTeam_5")).prop('class')!= 'hidden'){
-				document.getElementById("infoAboutVisitorsForAdmin").innerHTML+='<p>Firma: '+company_5+'</p>';
-				for( var x=0; x<visitors5.length; x++){
-					if(visitors5[x]==""){
-						continue;
-					}
-					else {
-						document.getElementById("infoAboutVisitorsForAdmin").innerHTML +='<p>'+
-						z+'. '+ visitors5[x]+'</p>';
-						z=z+1;
-					}
-				}
-			}
-			var conferenceRoom = document.getElementById("conferenceRoom").value;
-			document.getElementById("infoAboutVisitorsForAdmin").innerHTML+='<p>Spotkanie będzie odbywać się w sali '+conferenceRoom+'.</p>'
-			
-			
-			var cateringStaff = ["woda", "sok", "kawa w termosie", "herbata w termosie", "ciastka", "owoce", "orzeszki", "kanapki", "drożdżówki", "tartinki"];
+			/*var cateringStaff = ["woda", "sok", "kawa w termosie", "herbata w termosie", "ciastka", "owoce", "orzeszki", "kanapki", "drożdżówki", "tartinki"];*/
 		});
 		
 		$('#addCompanyButton').click(function(event){
@@ -961,7 +925,7 @@
 			$("#cateringAccesories").addClass('hidden');
 		});
 		
-		$("#numberOfSundwiches").autocomplete({source: arrayForFood,
+		/*$("#numberOfSundwiches").autocomplete({source: arrayForFood,
 								   minLength: 0
 		});
 		
@@ -995,7 +959,54 @@
 			else{
 				document.getElementById('numberOfCake').disabled = false;
 			}
-		});
+		});*/
+		function addingTimeToDocument(startDay, startTime, endTime){
+			document.getElementById("infoAboutVisitorsForAdmin").innerHTML+= '<p>Data: '+startDay+'</p><p>Godziny: '+startTime+' - '+endTime+'</p>';
+			document.getElementById("infoAboutVisitorsForSecurity").innerHTML+= '<p>Termin: '+startDay+'</p><p>Godziny wizyty: '+startTime+' - '+endTime+'</p>';
+		}
+		function addingParametersForCateringToDocument(startDay, startTime, endTime, localization, valueOfVisitors){
+			document.getElementById('infoAboutCatering').innerHTML = '<p>Chciałbym zamówić następujący catering:</p><p style=font-style:bold">Catering nr ....</p>';
+			document.getElementById('infoAboutCatering').innerHTML+= '<p>Data: '+startDay+'</p><p>Godziny: '+startTime+' - '+endTime+'</p>';
+			document.getElementById('infoAboutCatering').innerHTML+= '<p> Lokalizacja:'+localization+'</p>';
+			document.getElementById('infoAboutCatering').innerHTML+= '<p> Ilość osób:'+valueOfVisitors+'</p>';
+		}
+		function addingGuestToDocument(tableOfVisitor,nameOfCompany){
+			var y=1;
+			document.getElementById("infoAboutVisitorsForSecurity").innerHTML+='<p>Na teren Woodward Poland Sp. z o.o. wchodzić będą następujące osoby:</p>';document.getElementById("infoAboutVisitorsForAdmin").innerHTML+='<p>Na teren Woodward Poland Sp. z o.o. wchodzić będą następujące osoby:</p>';
+			document.getElementById("infoAboutVisitorsForSecurity").innerHTML+='<p>Firma: '+nameOfCompany+'</p>';
+			document.getElementById("infoAboutVisitorsForAdmin").innerHTML+='<p>Firma: '+nameOfCompany+'</p>';
+			for( var x=0; x<tableOfVisitor.length; x++){
+				if(tableOfVisitor[x]==""){
+					continue;
+				}
+				else {
+					document.getElementById("infoAboutVisitorsForSecurity").innerHTML +='<p>'+y+'. '+ tableOfVisitor[x]+'</p>';
+					document.getElementById("infoAboutVisitorsForAdmin").innerHTML +='<p>'+y+'. '+ tableOfVisitor[x]+'</p>';
+					y=y+1;
+				}
+			}
+		}
+		function addingConferenceRoomToDocument(nameOfConferenceRoom){
+			if(nameOfConferenceRoom != ""){
+				document.getElementById("infoAboutVisitorsForAdmin").innerHTML+='<br/><p>Spotkanie będzie odbywać się w sali '+conferenceRoom+'.</p>'
+			}
+			else{
+				document.getElementById("infoAboutVisitorsForAdmin").innerHTML+='<br/><p style="font-style:italic">Nie podano sali konferencyjnej.</p>'
+			}
+		}
+		function countVisitorFunction( visitors1,visitors2,visitors3,visitors4,visitors5){
+			var peopleCount=0;
+			for( var x=0; x<visitors1.length; x++){
+				if(visitors1[x]==""){
+					console.log(peopleCount);
+					continue;
+				}
+				else {
+					peopleCount=peopleCount +1;
+				}
+			}
+			return peopleCount;
+		}
 	});
 </script>
 
