@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Wykonawca</title>
+		<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<style>
+			*{
+				font-family: verdana;
+				margin:0px;
+				padding:0px;
+			}
+			* p{
+				font-size: 14px;
+			}
+            html, body{
+                height: 100%;
+            }
+			label{
+				font-size: 14px;
+			}
+
+
+/* BUTTONS */
+			
+			
+			.brightButton{
+				background: white;
+				width: 250px;
+				height: 30px;
+				border-radius: 15px;
+				border: 1px solid rgba(0,0,0,0.7);
+				box-shadow: inset 0px 0px 10px rgba(0,0,0,0.7);
+				line-height: 30px;
+				text-align: center;
+				user-select: none;
+				cursor: pointer;
+				margin-top:13px;
+			}
+			.brightButton:hover{
+				background: rgb(255, 247, 221);
+			}
+			.brightButton:active{
+				background: rgb(255, 234, 165);
+			}
+			.redButton{
+				width: 300px;
+				height: 30px;
+				border-radius: 15px;
+				border: 1px solid rgba(255,255,255,0.7);
+				box-shadow: inset 0px 0px 10px rgba(255,255,255,0.7);
+				line-height: 30px;
+				text-align: center;
+				user-select: none;
+				cursor: pointer;
+				margin: 0 auto;
+				margin-top: 30px;
+				float:left;
+				margin-left: 30px;
+			}
+			.redButton:hover{
+				background: rgb(50, 142, 209);
+			}
+			.redButton:active{
+				background: rgb(111, 175, 222);
+			}
+			#previewButton{
+				float:left;
+				margin-left:190px;
+			}
+			#saveDraftButton{
+				float:right;
+				margin-right:184px;
+			}
+			#addCompanyButton{
+				width: 200px;
+				margin-top:0px;
+				margin-left:20px;
+				font-size:12px;
+				display:table-cell;
+				float: left;
+			}
+			.addPersonButton{
+				font-size: 20px;
+				padding: 3px;
+				line-height:25px;
+			}
+			#helpButtonOnFormSite{
+				width: 80px;
+				height: 20px;
+				line-height: 22px;
+				margin:0px;
+				right: 10px;
+				bottom:10px;
+				position:absolute;
+			}
+			#addVisitDay{
+				margin-left:20px;
+			}
+			
+			
+/*STRUCTURE*/
+			
+/*form site*/
+			
+			#formSite{
+				width: 1100px;
+				margin: 3px;
+			}
+			#infoPartOnFormSite{
+				width: 1080px;
+				padding:10px;
+				position:relative;
+				overflow:hidden;
+				height:150px;
+				transition: height 0.5s;
+				background-color: #0072c6;
+				<!--background-color:#b44545;-->
+			}
+			#infoPartOnFormSite p{
+				text-align:center;
+				color: white;
+			}
+			#infoPartOnFormSite a{
+				text-align:center;
+				color: white;
+			}
+			#infoPartOnFormSite h1{
+				text-align:center;
+				color: white;
+			}
+			#formParts{
+				width:1100px;
+                display: flex;
+			}
+			.formPart{
+                box-sizing: border-box;
+				width:50%;
+				margin:0px;
+				padding:10px;
+			}
+			#summaryBoxOnFormSite{
+				width:1100px;
+				height:60px;
+				margin: 0 auto;
+			}
+			#contactBoxOnFormSite{    
+				display:table;
+				width:1100px;
+			}
+			.splitBox{
+				width:540px;/*546px;*/
+				float: left;
+				display: table-cell;
+				margin:0px;
+			}		
+			.textField{					
+				background: white;
+				width: 400px;
+				height: 30px;
+				margin:20px;
+				border-radius: 5px;
+				border: 1px solid rgba(0,0,0,0.5);
+				box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);
+				line-height: 30px;
+				text-align: center;
+				user-select: none;
+				cursor: pointer;
+				outline:none;
+			}
+			.people{
+				margin-left: 50px;
+			}
+			.food{
+				width: 20px !important;
+				height: 20px;
+			}
+			
+/*document site*/
+			
+			#documentSite{
+				background-color:#fee4b4;
+				height:30.7cm;
+				width: 1170px;
+				transition: height 0.01s;
+				margin: 3px;
+			}
+			.notification{
+				min-height: 400px;
+				background-color:#fee4b4;
+				border:solid 3px;
+				border-color:#0072c6;
+				float: left;
+				display: table-cell;
+				margin:0px;
+				width: 48.5%;
+			}
+			#documentSite h3{
+				text-align: center;
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+			#documentSite p, #infoAboutVisitorsForSecurity, #infoAboutVisitorsForAdmin{
+				margin-left: 15px;
+				margin-right: 15px;
+			}
+			
+						
+/*FUNCTIONALITIES*/
+
+
+			.hidden{
+				display:none !important;
+			}
+			.unwrappedMedium{
+				height: 240px !important;
+				transition: height 0.5s;
+			}
+			.unwrappedBig{
+				height: 350px !important;
+				transition: height 1s;
+			}
+			.unwrappedSmall{
+				height: 60cm !important;
+				transition: height 0.01s;
+			}
+			
+			
+/*OTHER*/
+			
+			
+			input[type="checkbox"]{
+				margin:10px;
+			}
+			input[type="text"]{
+				width: 250px;
+				margin:10px;
+			}
+			
+			input[type="date"]{
+				width: 250px;
+				margin:10px;
+			}
+			input[type="time"]{
+				width: 250px;
+				margin:10px;
+			}
+			.ui-autocomplete {
+				position                    : absolute;
+				top                         : 100%;
+				left                        : 0;
+				z-index                     : 1000;
+				float                       : left;
+				display                     : none;
+				min-width                   : 160px;   
+				padding                     : 4px 0;
+				margin                      : 0 0 10px 25px;
+				list-style                  : none;
+				background-color            : #ffffff;
+				border-color                : #ccc;
+				border-color                : rgba(0, 0, 0, 0.2);
+				border-style                : solid;
+				border-width                : 1px;
+				border-radius               : 5px;
+				box-shadow                  : 0 5px 10px rgba(0, 0, 0, 0.2);
+				background-clip             : padding-box;
+				padding-left: 20px;
+				font-family: verdana;
+				font-size: 14px;
+				*border-right-width         : 2px;
+				*border-bottom-width        : 2px;
+			}
+			.ui-menu-item > a.ui-corner-all {
+				display                     : block;
+				padding                     : 3px 15px;
+				clear                       : both;
+				font-weight                 : normal;
+				line-height                 : 18px;
+				color                       : #555555;
+				white-space                 : nowrap;
+				text-decoration             : none;
+			}
+			.ui-state-hover, .ui-state-active {
+				color                       : #ffffff;
+				text-decoration             : none;
+				background-color            : #0088cc;
+				border-radius               : 0px;
+				background-image            : none;
+			}
+			.ui-helper-hidden-accessible{ 
+				display:none; 
+			}
+		</style>
+	</head>
+	<body>
+		<div id="formSite" class="hidden">
+			<form name="form"> 
+				<div id="infoPartOnFormSite">
+					<h1 style="text-align:center;"> Formularz zgłaszania Gości</h1>
+					<br/>
+					<p> Każdy pracownik zapraszając Gościa ma obowiązej zgłosić jego przybycie do Działu Administracji i Ochrony poprzez wypełnienie tego formularza. Po jego wypełnieniu wygeneruje się dokument, który nalezy zapisać. Zapisanie jest jednoznaczne z wypełnieniem wymagań koniecznych do przyjęcia gościa na terenie zakładu. </p>
+					<br/>
+					<p style="font-weight:bold;"> Wszystkie pola są obowiązkowe.</p>
+					<br/>
+					<div id="helpButtonOnFormSite" class="redButton">
+						<p style="font-size:10px;">Pomoc ▼</p>
+					</div>
+					<div id="contactBoxOnFormSite">
+						<div class="splitBox">
+							<p>Pytania o treść formularza proszę kierować do: </p><p><a href="mailto:agnieszka.biernat@woodward.com"> Agnieszka Biernat </a></p><p>lub</p><p><a href="mailto:aleksandra.mieszkowska@woodward.com"> Aleksandra Mieszkowska </a></p>
+						</div>
+						<div class="splitBox">
+							<p> Awarie formularza proszę kierować do:</p><p ><a href="mailto:aleksandra.mieszkowska@woodward.com"> Aleksandra Mieszkowska </a></p> <p style="text-align:center">lub</p><p><a href="mailto:dawid.skorewicz@woodward.com"> Dawid Skórewicz </a></p>
+						</div>
+					</div>
+				</div>
+				<div id="formParts">
+					<fieldset class="formPart" style="background-color:#fee4b4;border-color:#0072c6;">
+						
+						
+						<h3 style="text-align:center"> Dane dotyczące Gości</h3>
+						<br/>
+					
+						
+						<div id="visitorsOnFormSite">
+							<label for="Sklad"> Imiona i Nazwiska osób odwiedzających: </label><br/>
+							<div id="companyTeam_1">
+								<p>1. <input type="text" id="company_1" class="textField company" value="" placeholder="Nazwa Firmy"/></p>
+								<p class="people"><input type="text" id="visitor_1_1" class="textField people people1" value="" placeholder="Jan Kowalski"/> <a class="brightButton addPersonButton" id="addPersonButton1">&nbsp＋&nbsp </a></p>
+							</div>
+							<div id="companyTeam_2" class="hidden">
+								<p>2. <input type="text" id="company_2" class="textField company" value="" placeholder="Nazwa Firmy"/></p>
+								<p class="people"><input type="text" id="visitor_2_1" class="textField people people2" value="" placeholder="Jan Kowalski"/> <a class="brightButton addPersonButton" id="addPersonButton2">&nbsp＋&nbsp </a></p>
+							</div>
+							<div id="companyTeam_3" class="hidden">
+								<p>3. <input type="text" id="company_3" class="textField company" value="" placeholder="Nazwa Firmy"/></p>
+								<p class="people"><input type="text" id="visitor_3_1" class="textField people people3" value="" placeholder="Jan Kowalski"/> <a class="brightButton addPersonButton" id="addPersonButton3">&nbsp＋&nbsp </a></p>
+							</div>
+							<div id="companyTeam_4" class="hidden">
+								<p>4. <input type="text" id="company_4" class="textField company" value="" placeholder="Nazwa Firmy"/></p>
+								<p class="people"><input type="text" id="visitor_4_1" class="textField people people4" value="" placeholder="Jan Kowalski"/> <a class="brightButton addPersonButton" id="addPersonButton4">&nbsp＋&nbsp </a></p>
+							</div>
+							<div id="companyTeam_5" class="hidden">
+								<p>5. <input type="text" id="company_5" class="textField company" value="" placeholder="Nazwa Firmy"/></p>
+								<p class="people"><input type="text" id="visitor_5_1" class="textField people people5" value="" placeholder="Jan Kowalski"/> <a class="brightButton addPersonButton" id="addPersonButton5">&nbsp＋&nbsp </a></p>
+							</div>
+						</div>
+						<div id="addCompanyButton" class="brightButton">
+							<p>Dodaj kolejną firmę</p>
+						</div>
+						
+					
+						<br/>
+						<br/>
+						<br/>
+						<label for="Supervisor"> Imię i Nazwisko osoby zapraszającej - osoby odpowiedzialnej ze strony Woodward Poland: </label>
+						<br/>
+						<input type="text" name="Supervisor" class="textField" id="supervisor" value="" /><br />
+						
+						
+						<label for="Phone"> Telefon kontaktowy do osoby zapraszającej: </label>
+						<br/>
+						<input type="tel" name="Phone" id="phone" class="textField" placeholder="111-111-111" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" /><br/>
+						
+						
+						<label for="Department"> Numer departamentu osoby zapraszającej: </label>
+						<br/>
+						<input type="tel" name="Department" id="department" class="textField" placeholder="45-111" pattern="[45]{2}-[0-9]{3}" />
+						
+						
+						<table>
+							<tr>
+								<td><input type="checkbox" id="oneDayVisitCheckbox" checked="checked"/></td>
+								<td><label for="oneDayVisitCheckbox" style="font-size:14px;margin-top:15px;">Wizyta gościa jest jednodniowa.</label><br/></td>
+							</tr>
+						</table>
+						<div id="oneDayVisitForm" class="">
+							<label for="StartDay"> Data wizyty: </label>
+							<input type="date" class="textField" name="StartDay" min="2017-01-01" max="2050-12-31" style="width:150px" value=""id="startDay" />
+							<br/>
+							<label for="StartTime">Godzina rozpoczęcia: </label>	<input type="time" name="StartTime" class="textField" value="09:00" style="width:150px" id="startTime"><br/>
+							<label for="EndTime">Godzina zakończenia: </label>	
+							<input type="time" name="EndTime" class="textField" value="16:00" style="width:150px" id="endTime">
+							<!--<label for="EndTime"> Data zakończenia pracy: </label><input type="date" class="textField" name="EndTime" min="2017-01-01" max="2050-12-31" style="width:150px" value="" id="endTime"/><br/>-->
+						</div>
+						<div id="manyDaysVisitForm" class="hidden">
+							<table id="tableOfVisitsTerms">
+								<tr>
+									<td><p style="margin-left:15px;">Data wizyty:</p></td>
+									<td><p style="margin-left:15px;">Godzina rozpoczęcia:</p></td>
+									<td><p style="margin-left:15px;">Godzina zakończenia:</p></td>
+								</tr>
+								<tr>
+									<td><input type="date" class="textField" name="1DateVisit" min="2017-01-01" max="2050-12-31" style="width:150px" value=""id="1dateVisit" /></td>
+									<td><input type="time" name="1DateStartTime" class="textField" value="09:00" style="width:150px" id="1dateStartTime">
+									<td><input type="time" name="1DateEndTime" class="textField" value="16:00" style="width:150px" id="1dateEndTime"></td>
+								</tr>
+								<tr>
+									<td><input type="date" class="textField" name="2DateVisit" min="2017-01-01" max="2050-12-31" style="width:150px" value=""id="2dateVisit" /></td>
+									<td><input type="time" name="2DateStartTime" class="textField" value="09:00" style="width:150px" id="2dateStartTime">
+									<td><input type="time" name="2DateEndTime" class="textField" value="16:00" style="width:150px" id="2dateEndTime"></td>
+								</tr>
+							</table>
+							<div id="addVisitDay" class="brightButton">
+								<p>Dodaj kolejny termin</p>
+							</div>
+						</div>
+					</fieldset>	
+					<fieldset class="formPart" style="background-color:#fee4b4; border-color:#0072c6;">	
+						
+						<h3 style="text-align:center"> Dane dotyczące wizyty: </h3><br/>
+						
+						
+						<label for="Description"> Powód wizyty:</label><br />
+						<textarea rows="10" cols="40" name="Description" id="description" class="textField" style="height:50px; text-align:left; padding:10px; line-height: 1.2em; resize: none;" placeholder="Opis..."></textarea><br />
+						
+						
+						<label for="ConferenceRoom"> Wybierz salę, w której odbędzie się spotkanie: </label><br/>
+						<input type="text" class="textField" id="conferenceRoom" placeholder="Wybierz salę konferencyjną"/><br/><br/>
+							
+						
+						<label for="Catering"> Czy chciałbyś/chciałabyś zamówić catering? </label><br/>
+						<table>
+							<tr>
+								<td> <label for="withCatering">Tak, poproszę</label></td>
+								<td style="width:150px;" id="yesCatering"> <input type="checkbox" id="withCatering" /></td>
+								<td> <label for="withoutCatering">Nie, dziękuję </label></td>
+								<td id="noCatering"><input type="checkbox" id="withoutCatering" checked="checked"/></td>
+							</tr>
+						</table>
+						<div id="cateringAccesories" class="hidden">
+							<table>
+								<tr>
+									<td> <input type="checkbox" id="water"/></td>
+									<td><label for="water">Woda </label></td>
+									<td> <input type="checkbox" id="fruit"/></td>
+									<td><label for="fruit">Owoce </label> </td>
+									<td></td>
+								</tr>
+								<tr>
+									<td> <input type="checkbox" id="juice"/></td>
+									<td><label for="juice">Sok </label> </td>
+									<td> <input type="checkbox" id="peanut"/></td>
+									<td><label for="peanut">Orzeszki </label> </td>
+									<td></td>
+								</tr>
+								<tr>
+									<td> <input type="checkbox" id="coffee"/></td>
+									<td><label for="coffee">Kawa w termosie</label> </td>
+									<td> <input type="checkbox" id="sandwiches"/></td>
+									<td><label for="sandwiches">Kanapki </label> </td>
+									<td class="hidden"><p>Ilość na osobę:<input type="text" class="textField food" id="numberOfSundwiches" disabled/></p></td>
+									
+								</tr>
+								<tr>
+									<td> <input type="checkbox" id="tea"/></td>
+									<td><label for="tea">Herbata w termosie </label> </td>
+									<td> <input type="checkbox" id="cake"/></td>
+									<td><label for="cake">Drożdżówki </label> </td>
+									<td><p class="hidden">Ilość na osobę:<input type="text" class="textField food" id="numberOfSundwiches" disabled/></p></td>
+								</tr>
+								<tr>
+									<td> <input type="checkbox" id="cookies"/></td>
+									<td><label for="cookies">Ciastka</label></td>
+									<td> <input type="checkbox" id="tartinki"/></td>
+									<td><label for="tartinki">Tartinki </label></td>
+									<td></td>
+								</tr>
+							</table>
+						</div>
+						
+						<br/><label for="Description"> Dodatkowe informacje lub prośby:</label><br />
+						<textarea rows="10" cols="40" name="OtherInfo" id="otherInfo" class="textField" style="height:50px; text-align:left; padding:10px; line-height: 1.2em; resize: none;" placeholder=""></textarea><br />
+						<!--
+						
+						<br/>
+						
+						
+							
+						<br/>
+						
+						
+						<label for="Description"> Woodward Poland zleca Podwykonawcy następujące prace:</label><br />
+						<textarea rows="10" cols="40" name="Description" id="description" class="textField" style="height:106px; text-align:left; padding:10px; line-height: 1.2em; resize: none;" placeholder="Krótki opis, na przykład: prace elektryczne"></textarea><br />
+						
+						
+						<p style="margin: 0px;"> Odznacz te odzaje prac, które nie będą wykonywane: </p><br/>
+						<table>
+							<tr>
+								<td><input type="checkbox" id="question_1" checked="checked"/></td>
+								<td><p style="font-size:14px;">Prace pożarowo niebezpieczne (spawanie, lutowanie, cięcie, używanie otwartego ognia i cieczy o temp. zapłonu poniżej 55 stopni C). </p><br/></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="question_2" checked="checked" /></td>
+								<td><p style="font-size:14px;">Praca na wysokości na nieogrodzonej powierzchni - dach, krawędź dachu.</p></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="question_3" checked="checked" /></td>
+								<td><p style="font-size:14px;">Prace remontowo-budowlane bez wstrzymania ruchu zakładu.</p></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="question_4" checked="checked" /></td>
+								<td><p style="font-size:14px;">Prace w obrębie magazynu wysokiego składowania.</p></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="question_5" checked="checked" /></td>
+								<td><p style="font-size:14px;">Prace przy użyciu środków chemicznych dostaczonych przez Podwykonawcę. </p></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="question_6" checked="checked" /></td>
+								<td><p style="font-size:14px;">Prace w obrębie strefy produkcyjnej. </p></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="question_7" checked="checked" /></td>
+								<td><p style="font-size:14px;">Prace powodujące generowanie odpadów. </p></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="question_8" checked="checked" /></td>
+								<td><p style="font-size:14px;">Odłączenie napięcia instalacji, odłączenie mediów. </p></td>
+							</tr>
+						</table>-->
+					</fieldset>
+				
+				</div>
+				<div id="summaryBoxOnFormSite" >
+					<fieldset style="height:100%; background-color:#fee4b4;border-color:#0072c6;">
+						<div class="splitBox" style="padding-left: 10px;">
+						<div id="previewButton"  class="brightButton"  >
+									Podgląd dokumentu
+						</div>
+						</div>
+						<div class="splitBox">
+						<div id="saveDraftButton" class="brightButton" >
+									Zapis wersji roboczej
+						</div>
+						</div>
+					</fieldset>
+				</div>
+			</form>
+		</div>
+		<div id="documentSite">
+			<h2 style="text-align: center;padding:20px;"> Po naciśnięciu guzika wyślij poniższe komunikaty zostaną wysłane od odpowiednich osób, a zgłoszenie zapiszę się w bazie zgłoszeń gości. </h2>
+			<div id="securityPart" class="notification" style="margin-left:12px;">
+				<h3> Ochrona </h3>
+				<div id="securityNotification">
+					<p> Szanowni Państwo,</p>
+					<p> Chciałbym / chciałabym zgłosić wizytę gości.</p>
+					<a id ="infoAboutVisitorsForSecurity"></a>
+					<p>Uprzejmie prosze o skierowanie gościa / gości do recepcji.</p>
+					<a id="signature"></a>					
+				</div>
+			</div>
+			<div id="administrationPart" class="notification" style="margin-right:12px;">
+				<h3> Dział Administracji </h3>
+				<div id="administrationNotification">
+					<p> Szanowni Państwo,</p>
+					<p> Chciałbym / chciałabym zgłosić wizytę gości.</p>
+					<a id ="infoAboutVisitorsForAdmin"></a>
+					<a id ="infoAboutCatering"></a>
+					<a id="signature"></a>					
+					
+				</div>
+			</div>
+			<div id="podsumowanie">
+				<div id="backButton" class="redButton">
+						<p>Powrót</p>
+					</div>
+			</div>
+			<!--<div id="firstSiteDocument" class="documentPart"> 
+				<div class="documentText" id="text">
+					<div id="footer">
+						<img src="logo.png" width="300">
+						<div class="stopka_gora_2">
+							<p style="font-weight:bold;font-size: 11px;color:gray;"> Woodward Poland Sp. z o.o.</p>
+							<p style="font-size: 11px;color:gray;"> ul. Skarbowa 32</p>
+							<p style="font-size: 11px;color:gray;">	32-005 Niepołomice - Polska</p>
+							<p style="font-size: 11px;color:gray;"> Tel: +48 12 29 51 300</p>
+							<p style="font-size: 11px;color:gray;"> Fax: +48 12 29 51 390 </p>
+							<p style="font-size: 11px;color:gray;"> NIP: 675-13-30-882 REGON: 300051301</p>
+						</div>
+					</div>
+					<div id="date" style="float:right;">
+					</div>
+					<div id="entry">
+					
+					</div>
+					<div id="teamOnDocumentSite">
+					
+					</div>
+					<div id="basicRiskAssertion">
+						
+					</div>
+					<div id="signatureOnFirstSite" >
+					
+					</div>
+					
+				</div>
+			</div>
+			<div id="secondSiteDocument" class="documentPart hidden"> 
+				<div class="documentText">
+					<div class="footer">
+						<img src="logo.png" width="300">
+					</div>
+					<div id="basicRiskAssertion2">
+						
+					</div>
+					<div id="signatureOnSecondSite" >
+					
+					</div>
+					
+				</div>
+			</div>
+			<div id="infoPartOnDocumentSite">
+				<div id="summaryBoxOnDocumentSite">
+					<div id="backButton" class="redButton">
+						<p>Powrót</p>
+					</div>
+					<div id="printButton" class="redButton">
+						<p>Drukuj</p>
+					</div>
+					<div id="draftButton" class="redButton">
+						<p>Zapis wersji roboczej</p>
+					</div>
+				</div>
+				<div id="supportBox">
+					<h3 style="text-align:center">Komunikaty o błędach</h3><br/>
+				</div>
+				<div id="contactBoxOnDocumentSite">
+					<div id="helpButtonOnDocumentSite" class="redButton">
+								<p >Pomoc ▼</p>
+					</div>
+					<div id="unwrappedContactBoxOnDocumentSite">
+						<br/><br/><br/><br/><br/><p style="text-align:center;">Pytania o treść formularza proszę kierować do: </p><p style="text-align:center;"><a href="mailto:andrzej.wrona@woodward.com"> Andrzej Wrona </a></p><p style="text-align:center;">lub</p><p style="text-align:center;"><a href="mailto:anna.rajzer@woodward.com"> Anna Rajzer </a></p>
+						<br/><p style="text-align:center;"> Awarie formularza proszę kierować do:</p><p style="text-align:center;" ><a href="mailto:aleksandra.mieszkowska@woodward.com"> Aleksandra Mieszkowska </a></p> <p style="text-align:center">lub</p><p style="text-align:center;"><a href="mailto:dawid.skorewicz@woodward.com"> Dawid Skórewicz </a></p>
+					</div>
+				</div>
+			</div>-->
+		</div>
+	</body>
+</html>
+<script>
+	$(document).ready(function() {
+		var peopleCount=1;
+		var peopleCountSummary = 1;
+		var companyCount=1;
+		var visitors1=[];
+		var visitors2=[];	
+		var visitors3=[];	
+		var visitors4=[];	
+		var visitors5=[];		
+		var numberOfDayWithVisit = 2;
+		var peopleCount1=2;
+		var peopleCount2=2;
+		var peopleCount3=2;
+		var peopleCount4=2;
+		var peopleCount5=2;
+		var arrayOfConferenceRoom = [
+			"Mickiewicz",
+			"Wierzynek",
+			"Rynek",
+			"Sukiennice",
+			"Skarbonka",
+			"Giewont",
+			"Barbakan",
+			"Bagatela",
+			"Wawel",
+			"Ratusz",
+			"Kopiec",
+			"Planty",
+			"Kleparz",
+			"Błonia",
+			"Kazimierz Wschód",
+			"Kazimierz Zachód",
+			"Kazimierz Wschód i Zachód",
+			"Spotkanie nie wymaga sali"
+		];
+		var arrayForFood = [
+			"1",
+			"2",
+			"3"
+		]
+		$('#backButton').click(function(event){
+			$("#documentSite").addClass('hidden');
+			$("#formSite").removeClass('hidden');
+			/*$("#documentSite").removeClass('unwrappedSmall');
+			
+			document.getElementById("supportBox").innerHTML = '';
+			document.getElementById("signatureOnSecondSite").innerHTML = '';*/
+			
+		});
+		
+		$('#previewButton').click(function(event){
+		
+			/* Odpowiada za przełączenie formularza na dokument*/
+			$("#formSite").addClass('hidden');
+			$("#documentSite").removeClass('hidden');
+			var company_1 = document.getElementById("company_1").value;
+			var company_2 = document.getElementById("company_2").value;
+			var company_3 = document.getElementById("company_3").value;
+			var company_4 = document.getElementById("company_4").value;
+			var company_5 = document.getElementById("company_5").value;
+			var startDay = document.getElementById("startDay").value;
+			var startTime = document.getElementById("startTime").value;
+			var endTime = document.getElementById("endTime").value;
+			var y = 1;
+			var z = 1;
+			console.log(visitors1.length);
+			$(".people1").each(function(index, element){
+				visitors1.push(element.value);
+			});
+			$(".people2").each(function(index, element){
+				visitors2.push(element.value);
+			});
+			$(".people3").each(function(index, element){
+				visitors3.push(element.value);
+			});
+			$(".people4").each(function(index, element){
+				visitors4.push(element.value);
+			});
+			$(".people5").each(function(index, element){
+				visitors5.push(element.value);
+			});
+			if($('#oneDayVisitCheckbox').is(':checked')){
+				document.getElementById("infoAboutVisitorsForSecurity").innerHTML+= '<p>Termin: '+startDay+'</p><p>Godziny wizyty: '+startTime+' - '+endTime+'</p>';
+			}
+			else{console.log("nie działa")};
+			
+			document.getElementById("infoAboutVisitorsForSecurity").innerHTML+='<p>Na teren Woodward Poland Sp. z o.o. wchodzić będą następujące osoby:</p><p>Firma: '+company_1+'</p>';
+			for( var x=0; x<visitors1.length; x++){
+				if(visitors1[x]==""){
+					continue;
+				}
+				else {
+					document.getElementById("infoAboutVisitorsForSecurity").innerHTML +='<p>'+
+					y+'. '+ visitors1[x]+'</p>';
+					y=y+1;
+				}
+			}
+			if($(document.getElementById("companyTeam_2")).prop('class')!= 'hidden'){
+				document.getElementById("infoAboutVisitorsForSecurity").innerHTML+='<p>Firma: '+company_2+'</p>';
+				for( var x=0; x<visitors2.length; x++){
+					if(visitors2[x]==""){
+						continue;
+					}
+					else {
+						document.getElementById("infoAboutVisitorsForSecurity").innerHTML +='<p>'+
+						y+'. '+ visitors2[x]+'</p>';
+						y=y+1;
+					}
+				}
+			}
+			if($(document.getElementById("companyTeam_3")).prop('class')!= 'hidden'){
+				document.getElementById("infoAboutVisitorsForSecurity").innerHTML+='<p>Firma: '+company_3+'</p>';
+				for( var x=0; x<visitors3.length; x++){
+					if(visitors3[x]==""){
+						continue;
+					}
+					else {
+						document.getElementById("infoAboutVisitorsForSecurity").innerHTML +='<p>'+
+						y+'. '+ visitors3[x]+'</p>';
+						y=y+1;
+					}
+				}
+			}
+			if($(document.getElementById("companyTeam_4")).prop('class')!= 'hidden'){
+				document.getElementById("infoAboutVisitorsForSecurity").innerHTML+='<p>Firma: '+company_4+'</p>';
+				for( var x=0; x<visitors4.length; x++){
+					if(visitors4[x]==""){
+						continue;
+					}
+					else {
+						document.getElementById("infoAboutVisitorsForSecurity").innerHTML +='<p>'+
+						y+'. '+ visitors4[x]+'</p>';
+						y=y+1;
+					}
+				}
+			}
+			if($(document.getElementById("companyTeam_5")).prop('class')!= 'hidden'){
+				document.getElementById("infoAboutVisitorsForSecurity").innerHTML+='<p>Firma: '+company_5+'</p>';
+				for( var x=0; x<visitors5.length; x++){
+					if(visitors5[x]==""){
+						continue;
+					}
+					else {
+						document.getElementById("infoAboutVisitorsForSecurity").innerHTML +='<p>'+
+						y+'. '+ visitors5[x]+'</p>';
+						y=y+1;
+					}
+				}
+			}
+			
+			
+			
+			if($('#oneDayVisitCheckbox').is(':checked')){
+				document.getElementById("infoAboutVisitorsForAdmin").innerHTML+= '<p>Termin: '+startDay+'</p><p>Godziny wizyty: '+startTime+' - '+endTime+'</p>';
+			}
+			else{console.log("nie działa")};
+			
+			document.getElementById("infoAboutVisitorsForAdmin").innerHTML+='<p>Na teren Woodward Poland Sp. z o.o. wchodzić będą następujące osoby:</p><p>Firma: '+company_1+'</p>';
+			for( var x=0; x<visitors1.length; x++){
+				if(visitors1[x]==""){
+					continue;
+				}
+				else {
+					document.getElementById("infoAboutVisitorsForAdmin").innerHTML +='<p>'+
+					z+'. '+ visitors1[x]+'</p>';
+					z=z+1;
+				}
+			}
+			if($(document.getElementById("companyTeam_2")).prop('class')!= 'hidden'){
+				document.getElementById("infoAboutVisitorsForAdmin").innerHTML+='<p>Firma: '+company_2+'</p>';
+				for( var x=0; x<visitors2.length; x++){
+					if(visitors2[x]==""){
+						continue;
+					}
+					else {
+						document.getElementById("infoAboutVisitorsForAdmin").innerHTML +='<p>'+
+						z+'. '+ visitors2[x]+'</p>';
+						z=z+1;
+					}
+				}
+			}
+			if($(document.getElementById("companyTeam_3")).prop('class')!= 'hidden'){
+				document.getElementById("infoAboutVisitorsForAdmin").innerHTML+='<p>Firma: '+company_3+'</p>';
+				for( var x=0; x<visitors3.length; x++){
+					if(visitors3[x]==""){
+						continue;
+					}
+					else {
+						document.getElementById("infoAboutVisitorsForAdmin").innerHTML +='<p>'+
+						z+'. '+ visitors3[x]+'</p>';
+						z=z+1;
+					}
+				}
+			}
+			if($(document.getElementById("companyTeam_4")).prop('class')!= 'hidden'){
+				document.getElementById("infoAboutVisitorsForAdmin").innerHTML+='<p>Firma: '+company_4+'</p>';
+				for( var x=0; x<visitors4.length; x++){
+					if(visitors4[x]==""){
+						continue;
+					}
+					else {
+						document.getElementById("infoAboutVisitorsForAdmin").innerHTML +='<p>'+
+						z+'. '+ visitors4[x]+'</p>';
+						z=z+1;
+					}
+				}
+			}
+			if($(document.getElementById("companyTeam_5")).prop('class')!= 'hidden'){
+				document.getElementById("infoAboutVisitorsForAdmin").innerHTML+='<p>Firma: '+company_5+'</p>';
+				for( var x=0; x<visitors5.length; x++){
+					if(visitors5[x]==""){
+						continue;
+					}
+					else {
+						document.getElementById("infoAboutVisitorsForAdmin").innerHTML +='<p>'+
+						z+'. '+ visitors5[x]+'</p>';
+						z=z+1;
+					}
+				}
+			}
+			var conferenceRoom = document.getElementById("conferenceRoom").value;
+			document.getElementById("infoAboutVisitorsForAdmin").innerHTML+='<p>Spotkanie będzie odbywać się w sali '+conferenceRoom+'.</p>'
+			
+			
+			var cateringStaff = ["woda", "sok", "kawa w termosie", "herbata w termosie", "ciastka", "owoce", "orzeszki", "kanapki", "drożdżówki", "tartinki"];
+		});
+		
+		$('#addCompanyButton').click(function(event){
+			if($(document.getElementById("companyTeam_2")).prop('class')== 'hidden'){
+				$(document.getElementById("companyTeam_2")).removeClass("hidden");
+			}
+			else if($(document.getElementById("companyTeam_3")).prop('class')== 'hidden'){
+				$(document.getElementById("companyTeam_3")).removeClass("hidden");
+			}
+			else if($(document.getElementById("companyTeam_4")).prop('class')== 'hidden'){
+				$(document.getElementById("companyTeam_4")).removeClass("hidden");
+			}
+			else if($(document.getElementById("companyTeam_5")).prop('class')== 'hidden'){
+				$(document.getElementById("companyTeam_5")).removeClass("hidden");
+			}
+			else{}
+		});
+		$(".addPersonButton").click(function(event){
+			var companyId = $(event.target).prop('id');
+			var numberOfCompany = companyId.slice(-1);
+			var companyTeam = "#companyTeam_"+numberOfCompany;
+			if(numberOfCompany <= 5){
+				input = jQuery('<p class="people"><input type="text" id="visitor_'+companyId+'_'+peopleCount2+'" class="textField people people'+numberOfCompany+'" value="" placeholder="Jan Kowalski"/> </p>');
+				jQuery(companyTeam).append(input);
+				if(numberOfCompany==1){
+					peopleCount1 = peopleCount1 + 1;
+				}
+				else if(numberOfCompany==2){
+					peopleCount2 = peopleCount2 + 1;
+				}
+				else if(numberOfCompany==3){
+					peopleCount3 = peopleCount3 + 1;
+				}
+				else if(numberOfCompany==4){
+					peopleCount4 = peopleCount4 + 1;
+				}
+				else if(numberOfCompany==5){
+					peopleCount5 = peopleCount5 + 1;
+				}
+				else{};
+			}
+			else{};
+		});
+		
+		$('#helpButtonOnFormSite').click(function(){
+			if($("#infoPartOnFormSite").hasClass('unwrappedMedium')){
+				$("#infoPartOnFormSite").removeClass('unwrappedMedium');
+				document.getElementById('helpButtonOnFormSite').innerHTML= '<p style="font-size:10px;">Pomoc ▼</p>';
+			}
+			else{
+				$("#infoPartOnFormSite").addClass('unwrappedMedium');
+				document.getElementById('helpButtonOnFormSite').innerHTML= '<p style="font-size:10px;">Pomoc ▲</p> ';
+			}
+		});
+		$('#helpButtonOnDocumentSite').click(function(){
+			if($("#contactBoxOnDocumentSite").hasClass('unwrappedBig')){
+				$("#contactBoxOnDocumentSite").removeClass('unwrappedBig');
+				document.getElementById('helpButtonOnDocumentSite').innerHTML= '<p>Pomoc ▼</p>';
+			}
+			else{
+				$("#contactBoxOnDocumentSite").addClass('unwrappedBig');
+				document.getElementById('helpButtonOnDocumentSite').innerHTML= '<p>Pomoc ▲</p> ';
+			}
+		});
+		$('#oneDayVisitCheckbox').click(function(){
+			if($('#oneDayVisitCheckbox').is(':checked')){
+				$("#oneDayVisitForm").removeClass('hidden');
+				$("#manyDaysVisitForm").addClass('hidden');
+			}
+			else{
+				$("#oneDayVisitForm").addClass('hidden');
+				$("#manyDaysVisitForm").removeClass('hidden');
+			}
+		});
+		$('#addVisitDay').click(function(){
+			numberOfDayWithVisit=numberOfDayWithVisit+1;
+			input = jQuery('<tr><td><input type="date" class="textField" name="'+numberOfDayWithVisit+'DateVisit" min="2017-01-01" max="2050-12-31" style="width:150px" value=""id="'+numberOfDayWithVisit+'dateVisit" /></td><td><input type="time" name="'+numberOfDayWithVisit+'DateStartTime" class="textField" value="09:00" style="width:150px" id="'+numberOfDayWithVisit+'dateStartTime"><td><input type="time" name="'+numberOfDayWithVisit+'DateEndTime" class="textField" value="16:00" style="width:150px" id="'+numberOfDayWithVisit+'dateEndTime"></td></tr>');
+			jQuery('#tableOfVisitsTerms').append(input);
+		});
+		$("#conferenceRoom").autocomplete({source: arrayOfConferenceRoom,
+								   minLength: 0
+		});
+		$("#conferenceRoom").on('focus',function(){
+			$(this).autocomplete( 'search', '' );
+		});
+	
+		$('#withCatering').click(function(){
+			document.getElementById('withoutCatering').checked = false;			document.getElementById('withCatering').checked = true;
+			$("#cateringAccesories").removeClass('hidden');
+		});
+		
+		$('#withoutCatering').click(function(){
+			document.getElementById('withoutCatering').checked = true;			document.getElementById('withCatering').checked = false;
+			$("#cateringAccesories").addClass('hidden');
+		});
+		
+		$("#numberOfSundwiches").autocomplete({source: arrayForFood,
+								   minLength: 0
+		});
+		
+		$("#numberOfSundwiches").on('focus',function(){
+			$(this).autocomplete( 'search', '' );
+		});
+		
+		$("#numberOfCake").autocomplete({source: arrayForFood,
+								   minLength: 0
+		});
+		
+		$("#numberOfCake").on('focus',function(){
+			$(this).autocomplete( 'search', '' );
+		});
+		
+		$(document).on("click","#sandwiches",function(){
+			var state = document.getElementById('sandwiches').checked;
+			if(state == false){
+				document.getElementById('numberOfSundwiches').disabled = true;
+			}
+			else{
+				document.getElementById('numberOfSundwiches').disabled = false;
+			}
+		});
+		
+		$(document).on("click","#cake",function(){
+			var state = document.getElementById('cake').checked;
+			if(state == false){
+				document.getElementById('numberOfCake').disabled = true;
+			}
+			else{
+				document.getElementById('numberOfCake').disabled = false;
+			}
+		});
+	});
+</script>
+
+<!-- muszę dokończyć catering i obsługe kilkudniowego spotkania. następnie dorobić guziki wysyłki dokumentów, powrotu do formularza, zapisu wersji roboczej, powrotu do wyboru formy zgłaszanych osób oraz kontrolę błędów,-->
